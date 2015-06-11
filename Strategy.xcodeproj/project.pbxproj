@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		C29F813C1B28A66A0049155C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F813B1B28A66A0049155C /* AppDelegate.swift */; };
 		C29F81411B28A66A0049155C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29F813F1B28A66A0049155C /* Main.storyboard */; };
-		C29F81431B28A66A0049155C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29F81421B28A66A0049155C /* Images.xcassets */; };
 		C29F81461B28A66A0049155C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29F81441B28A66A0049155C /* LaunchScreen.xib */; };
 		C29F81521B28A66A0049155C /* StrategyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F81511B28A66A0049155C /* StrategyTests.swift */; };
 		C29F815C1B28B1590049155C /* StrategyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F815B1B28B1590049155C /* StrategyViewController.swift */; };
+		C2D519281B2A11C500C5DB58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D519271B2A11C500C5DB58 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +30,12 @@
 		C29F813A1B28A66A0049155C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C29F813B1B28A66A0049155C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C29F81401B28A66A0049155C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C29F81421B28A66A0049155C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C29F81451B28A66A0049155C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C29F814B1B28A66A0049155C /* StrategyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StrategyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29F81501B28A66A0049155C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C29F81511B28A66A0049155C /* StrategyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyTests.swift; sourceTree = "<group>"; };
 		C29F815B1B28B1590049155C /* StrategyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategyViewController.swift; sourceTree = "<group>"; };
+		C2D519271B2A11C500C5DB58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 				C29F815D1B28B1620049155C /* Controllers */,
 				C29F813B1B28A66A0049155C /* AppDelegate.swift */,
 				C29F813F1B28A66A0049155C /* Main.storyboard */,
-				C29F81421B28A66A0049155C /* Images.xcassets */,
+				C2D519271B2A11C500C5DB58 /* Images.xcassets */,
 				C29F81441B28A66A0049155C /* LaunchScreen.xib */,
 				C29F81391B28A66A0049155C /* Supporting Files */,
 			);
@@ -208,9 +208,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D519281B2A11C500C5DB58 /* Images.xcassets in Resources */,
 				C29F81411B28A66A0049155C /* Main.storyboard in Resources */,
 				C29F81461B28A66A0049155C /* LaunchScreen.xib in Resources */,
-				C29F81431B28A66A0049155C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +425,7 @@
 				C29F81571B28A66A0049155C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C29F81581B28A66A0049155C /* Build configuration list for PBXNativeTarget "StrategyTests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +434,7 @@
 				C29F815A1B28A66A0049155C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

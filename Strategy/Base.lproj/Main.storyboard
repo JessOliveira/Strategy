@@ -56,6 +56,12 @@
                                             </mask>
                                         </variation>
                                     </imageView>
+                                    <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-pa-9TS">
+                                        <rect key="frame" x="222" y="196" width="40" height="33"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="c8z-3K-dlh">
+                                        <rect key="frame" x="267" y="256" width="26" height="25"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HPd-wm-xsf" secondAttribute="width" id="1w8-Ng-H91"/>
@@ -139,6 +145,7 @@
                                                 <constraint firstItem="GoW-4r-ADK" firstAttribute="leading" secondItem="rvJ-LL-hrH" secondAttribute="leading" id="3y6-bW-atB"/>
                                                 <constraint firstItem="dRV-3o-oxm" firstAttribute="leading" secondItem="rvJ-LL-hrH" secondAttribute="leading" id="71a-qz-NqM"/>
                                                 <constraint firstAttribute="centerY" secondItem="GoW-4r-ADK" secondAttribute="centerY" id="75o-7r-XtB"/>
+                                                <constraint firstItem="GoW-4r-ADK" firstAttribute="leading" secondItem="rvJ-LL-hrH" secondAttribute="leading" id="GQq-az-dmn"/>
                                                 <constraint firstItem="dRV-3o-oxm" firstAttribute="top" secondItem="rvJ-LL-hrH" secondAttribute="top" id="TRK-XG-rj5"/>
                                                 <constraint firstItem="GoW-4r-ADK" firstAttribute="top" secondItem="rvJ-LL-hrH" secondAttribute="top" constant="161" id="Ux9-2N-czj"/>
                                                 <constraint firstAttribute="trailing" secondItem="GoW-4r-ADK" secondAttribute="trailing" id="dLZ-LF-SiP"/>
@@ -151,12 +158,11 @@
                                                     <exclude reference="3y6-bW-atB"/>
                                                     <exclude reference="75o-7r-XtB"/>
                                                     <exclude reference="Ux9-2N-czj"/>
+                                                    <exclude reference="dLZ-LF-SiP"/>
                                                 </mask>
                                             </variation>
                                         </view>
-                                        <vibrancyEffect>
-                                            <blurEffect style="dark"/>
-                                        </vibrancyEffect>
+                                        <blurEffect style="dark"/>
                                     </visualEffectView>
                                 </subviews>
                                 <constraints>
@@ -168,7 +174,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Nq4-mg-viD" secondAttribute="bottom" constant="-65" id="hG3-UZ-sAm"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTC-eu-3xn" userLabel="benchYourTeamView">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTC-eu-3xn" userLabel="benchYourTeamView">
                                 <rect key="frame" x="0.0" y="20" width="20" height="536"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXw-O8-qyJ">
@@ -184,13 +190,13 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </view>
                                                     <vibrancyEffect>
-                                                        <blurEffect style="extraLight"/>
+                                                        <blurEffect style="light"/>
                                                     </vibrancyEffect>
                                                 </visualEffectView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoC-9e-z3d" userLabel="TeamView">
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoC-9e-z3d" userLabel="TeamView">
                                                     <rect key="frame" x="0.0" y="506" width="20" height="20"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="8oM-mj-AnE">
+                                                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="8oM-mj-AnE">
                                                             <rect key="frame" x="1" y="1" width="18" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="18" id="0q9-Ew-nWg"/>
@@ -285,6 +291,8 @@
                         <outlet property="scrollView" destination="ATt-3x-CxC" id="DHl-Qa-fWE"/>
                         <outlet property="teamView" destination="GoW-4r-ADK" id="Lwq-Wi-hP9"/>
                         <outlet property="teamWidth" destination="HlA-BE-abT" id="TA7-T7-W9K"/>
+                        <outlet property="testImage" destination="c8z-3K-dlh" id="CVc-EK-9K5"/>
+                        <outlet property="testView" destination="xbu-pa-9TS" id="tGI-rb-BHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -295,6 +303,7 @@
     <resources>
         <image name="arrow" width="50" height="50"/>
         <image name="arrowOther" width="50" height="50"/>
+        <image name="ball" width="640" height="480"/>
         <image name="soccer" width="750" height="509"/>
     </resources>
 </document>

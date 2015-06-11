@@ -17,13 +17,20 @@ class StrategyViewController: UIViewController {
     @IBOutlet weak var opponentView: UIView!
     @IBOutlet weak var teamWidth: NSLayoutConstraint!
     @IBOutlet weak var opponentWidth: NSLayoutConstraint!
+    @IBOutlet weak var testImage: UIImageView!
     
+    @IBOutlet weak var testView: UIView!
     var isPanelExpanded = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        var pan = UIPanGestureRecognizer(target:self, action:"pan:")
+        self.testView.addGestureRecognizer(pan)
+        
+        self.testImage.tintColor = UIColor.blueColor()
         
         self.scrollView.minimumZoomScale = 1.0
         self.scrollView.maximumZoomScale = 2.0
@@ -46,7 +53,7 @@ class StrategyViewController: UIViewController {
         
         //create tap in icon image
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
-        opponentView.addGestureRecognizer(tapIcon)
+        opponentView.addGestureRecognizer(tapIconOpponent)
         
     }
     
@@ -76,24 +83,34 @@ class StrategyViewController: UIViewController {
     // MARK: Animation Functions
     func expandPanel() {
         
-        //Change button to compress state
-        
+        //Change button to expand state
         self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-
-        //TODO: Animate panel size
         self.teamWidth.constant = 50
+        
+        self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        self.opponentWidth.constant = 50
+        
         
         self.view.layoutIfNeeded()
     }
     
     func compressPanel() {
-        //Chnage button to expand state
+        //Chnage button to compress state
         self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(0)
-        
-        //TODO: Animate panel size
         self.teamWidth.constant = 20
         
+        self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(0)
+        self.opponentWidth.constant = 20
+        
         self.view.layoutIfNeeded()
+    }
+    
+    func pan(recognizer:UIPanGestureRecognizer) {
+        var translation  = recognizer.translationInView(self.view!)
+        
+        self.testView.transform = CGAffineTransformTranslate(self.testView.transform, translation.x, translation.y)
+        recognizer.setTranslation(CGPointZero, inView: self.view)
+        
     }
 
 }
