@@ -15,6 +15,8 @@ class StrategyViewController: UIViewController {
     @IBOutlet weak var arrowTeamImageView: UIImageView!
     @IBOutlet weak var teamView: UIView!
     @IBOutlet weak var opponentView: UIView!
+    @IBOutlet weak var teamWidth: NSLayoutConstraint!
+    @IBOutlet weak var opponentWidth: NSLayoutConstraint!
     
     var isPanelExpanded = false;
 
@@ -74,25 +76,24 @@ class StrategyViewController: UIViewController {
     // MARK: Animation Functions
     func expandPanel() {
         
-//        //Change button to compress state
-//        iconImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-//        
-//        //TODO: Animate panel size
-//        self.heightPainel.constant = self.view.frame.height * 0.8
-//        self.labelHeight.constant = self.view.frame.height * 0.7
-//        
-//        self.view.layoutIfNeeded()
+        //Change button to compress state
+        
+        self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+
+        //TODO: Animate panel size
+        self.teamWidth.constant = 50
+        
+        self.view.layoutIfNeeded()
     }
     
     func compressPanel() {
-//        //Chnage button to expand state
-//        iconImage.transform = CGAffineTransformMakeRotation(0)
-//        
-//        //TODO: Animate panel size
-//        self.heightPainel.constant = 100
-//        self.labelHeight.constant = 25
-//        
-//        self.view.layoutIfNeeded()
+        //Chnage button to expand state
+        self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(0)
+        
+        //TODO: Animate panel size
+        self.teamWidth.constant = 20
+        
+        self.view.layoutIfNeeded()
     }
 
 }
