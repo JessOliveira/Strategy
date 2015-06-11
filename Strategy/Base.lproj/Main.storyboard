@@ -41,7 +41,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATt-3x-CxC">
                                 <rect key="frame" x="20" y="20" width="560" height="536"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccer" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-wm-xsf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="soccer2" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-wm-xsf">
                                         <rect key="frame" x="0.0" y="14" width="560" height="509"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HPd-wm-xsf" secondAttribute="height" multiplier="750:509" id="7ZU-Fb-tx8"/>
@@ -250,29 +250,39 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hiP-ai-BBB">
-                                <rect key="frame" x="16" y="40" width="30" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCP-c5-J9X" userLabel="playerView">
+                                <rect key="frame" x="0.0" y="40" width="20" height="20"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hiP-ai-BBB">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="LmA-mE-7so"/>
+                                            <constraint firstAttribute="width" secondItem="hiP-ai-BBB" secondAttribute="height" multiplier="1:1" id="cCr-F7-GcW"/>
+                                            <constraint firstAttribute="height" constant="20" id="vXa-Qy-Bjm"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="LmA-mE-7so"/>
+                                                <exclude reference="vXa-Qy-Bjm"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="LmA-mE-7so"/>
-                                    <constraint firstAttribute="width" secondItem="hiP-ai-BBB" secondAttribute="height" multiplier="1:1" id="cCr-F7-GcW"/>
-                                    <constraint firstAttribute="height" constant="20" id="vXa-Qy-Bjm"/>
+                                    <constraint firstAttribute="centerX" secondItem="hiP-ai-BBB" secondAttribute="centerX" id="1Hj-ap-0Wn"/>
+                                    <constraint firstItem="hiP-ai-BBB" firstAttribute="width" secondItem="ZCP-c5-J9X" secondAttribute="width" id="6FJ-JS-Oy0"/>
+                                    <constraint firstAttribute="centerY" secondItem="hiP-ai-BBB" secondAttribute="centerY" id="8tO-fF-er4"/>
+                                    <constraint firstAttribute="width" secondItem="ZCP-c5-J9X" secondAttribute="height" multiplier="1:1" id="UVt-mv-jFI"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="LmA-mE-7so"/>
-                                        <exclude reference="vXa-Qy-Bjm"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="top" secondItem="geg-g1-dWa" secondAttribute="bottom" id="0hR-BV-nKz"/>
-                            <constraint firstItem="hiP-ai-BBB" firstAttribute="width" secondItem="hTC-eu-3xn" secondAttribute="width" id="4j7-mZ-GYg"/>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="75L-gt-cBZ"/>
-                            <constraint firstItem="hiP-ai-BBB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="7ca-a5-QRw"/>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="leading" secondItem="geg-g1-dWa" secondAttribute="trailing" id="7gf-0u-Oix"/>
                             <constraint firstItem="geg-g1-dWa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="EVd-oz-Pe0"/>
+                            <constraint firstItem="ZCP-c5-J9X" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="FWl-18-Mfr"/>
                             <constraint firstAttribute="trailing" secondItem="geg-g1-dWa" secondAttribute="trailing" id="G6G-la-W3h"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="geg-g1-dWa" secondAttribute="bottom" id="JKG-tU-YUb"/>
                             <constraint firstItem="HPd-wm-xsf" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="KKY-XS-olB"/>
@@ -280,13 +290,14 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hTC-eu-3xn" secondAttribute="bottom" id="MA9-Y3-nLB"/>
                             <constraint firstAttribute="trailing" secondItem="ATt-3x-CxC" secondAttribute="trailing" id="QsC-cf-KOQ"/>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="WVp-YH-hGd"/>
+                            <constraint firstItem="ZCP-c5-J9X" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="XPn-hA-xgU"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ATt-3x-CxC" secondAttribute="bottom" id="aI6-AH-76k"/>
                             <constraint firstItem="HPd-wm-xsf" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.8" id="atc-pK-XvW"/>
                             <constraint firstAttribute="trailing" secondItem="ATt-3x-CxC" secondAttribute="trailing" constant="20" id="byU-KK-Oyy"/>
                             <constraint firstItem="hTC-eu-3xn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="dYL-lR-GAO"/>
                             <constraint firstItem="hTC-eu-3xn" firstAttribute="top" secondItem="ATt-3x-CxC" secondAttribute="bottom" constant="-536" id="dm1-0z-o8b"/>
-                            <constraint firstItem="hiP-ai-BBB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="ggZ-dZ-bJX"/>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="hz8-1M-HSf"/>
+                            <constraint firstItem="hTC-eu-3xn" firstAttribute="width" secondItem="ZCP-c5-J9X" secondAttribute="width" id="iBp-E5-jeI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -310,6 +321,7 @@
                         <outlet property="opponentView" destination="GoW-4r-ADK" id="Y6O-d5-7x0"/>
                         <outlet property="opponentWidth" destination="KdN-gs-T7F" id="RbX-NS-JUo"/>
                         <outlet property="playerTeamImage" destination="hiP-ai-BBB" id="OZs-MI-fWg"/>
+                        <outlet property="playerTeamView" destination="ZCP-c5-J9X" id="EEG-PM-efn"/>
                         <outlet property="scrollView" destination="ATt-3x-CxC" id="DHl-Qa-fWE"/>
                         <outlet property="teamView" destination="FoC-9e-z3d" id="1aw-LN-hjY"/>
                         <outlet property="teamWidth" destination="HlA-BE-abT" id="TA7-T7-W9K"/>
@@ -324,6 +336,6 @@
         <image name="arrow" width="50" height="50"/>
         <image name="arrowOther" width="50" height="50"/>
         <image name="ball" width="640" height="480"/>
-        <image name="soccer" width="750" height="509"/>
+        <image name="soccer2" width="1920" height="1200"/>
     </resources>
 </document>

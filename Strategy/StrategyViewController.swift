@@ -22,6 +22,7 @@ class StrategyViewController: UIViewController {
     @IBOutlet weak var opponentWidth: NSLayoutConstraint!
     
     @IBOutlet weak var playerTeamImage: UIImageView!
+    @IBOutlet weak var playerTeamView: UIView!
     
     @IBOutlet weak var ballView: UIView!
     @IBOutlet weak var ballImage: UIImageView!
@@ -35,6 +36,9 @@ class StrategyViewController: UIViewController {
         
         var pan = UIPanGestureRecognizer(target:self, action:"pan:")
         self.ballView.addGestureRecognizer(pan)
+        
+        var panPLayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
+        self.playerTeamView.addGestureRecognizer(panPLayer)
         
         self.playerTeamImage.tintColor = UIColor.blueColor()
         
@@ -123,5 +127,12 @@ class StrategyViewController: UIViewController {
         recognizer.setTranslation(CGPointZero, inView: self.view)
         
     }
+    
+    func panPlayer(recognizer:UIPanGestureRecognizer) {
+        var translation  = recognizer.translationInView(self.view!)
+        
+        self.playerTeamView.transform = CGAffineTransformTranslate(self.playerTeamView.transform, translation.x, translation.y)
+        recognizer.setTranslation(CGPointZero, inView: self.view)
+            }
 
 }
