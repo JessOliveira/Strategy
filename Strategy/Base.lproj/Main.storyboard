@@ -58,10 +58,12 @@
                                     </imageView>
                                     <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-pa-9TS">
                                         <rect key="frame" x="222" y="196" width="40" height="33"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="c8z-3K-dlh">
+                                                <rect key="frame" x="7" y="4" width="26" height="25"/>
+                                            </imageView>
+                                        </subviews>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="c8z-3K-dlh">
-                                        <rect key="frame" x="267" y="256" width="26" height="25"/>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HPd-wm-xsf" secondAttribute="width" id="1w8-Ng-H91"/>
@@ -248,11 +250,27 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hiP-ai-BBB">
+                                <rect key="frame" x="16" y="40" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LmA-mE-7so"/>
+                                    <constraint firstAttribute="width" secondItem="hiP-ai-BBB" secondAttribute="height" multiplier="1:1" id="cCr-F7-GcW"/>
+                                    <constraint firstAttribute="height" constant="20" id="vXa-Qy-Bjm"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LmA-mE-7so"/>
+                                        <exclude reference="vXa-Qy-Bjm"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="top" secondItem="geg-g1-dWa" secondAttribute="bottom" id="0hR-BV-nKz"/>
+                            <constraint firstItem="hiP-ai-BBB" firstAttribute="width" secondItem="hTC-eu-3xn" secondAttribute="width" id="4j7-mZ-GYg"/>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="75L-gt-cBZ"/>
+                            <constraint firstItem="hiP-ai-BBB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="7ca-a5-QRw"/>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="leading" secondItem="geg-g1-dWa" secondAttribute="trailing" id="7gf-0u-Oix"/>
                             <constraint firstItem="geg-g1-dWa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="EVd-oz-Pe0"/>
                             <constraint firstAttribute="trailing" secondItem="geg-g1-dWa" secondAttribute="trailing" id="G6G-la-W3h"/>
@@ -267,6 +285,7 @@
                             <constraint firstAttribute="trailing" secondItem="ATt-3x-CxC" secondAttribute="trailing" constant="20" id="byU-KK-Oyy"/>
                             <constraint firstItem="hTC-eu-3xn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="dYL-lR-GAO"/>
                             <constraint firstItem="hTC-eu-3xn" firstAttribute="top" secondItem="ATt-3x-CxC" secondAttribute="bottom" constant="-536" id="dm1-0z-o8b"/>
+                            <constraint firstItem="hiP-ai-BBB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="ggZ-dZ-bJX"/>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="hz8-1M-HSf"/>
                         </constraints>
                         <variation key="default">
@@ -285,14 +304,15 @@
                     <connections>
                         <outlet property="arrowOpponentImageView" destination="u5h-Fy-4Ax" id="BSi-oP-gSb"/>
                         <outlet property="arrowTeamImageView" destination="8oM-mj-AnE" id="DqH-MO-Kmc"/>
+                        <outlet property="ballImage" destination="c8z-3K-dlh" id="ttC-CT-Qcz"/>
+                        <outlet property="ballView" destination="xbu-pa-9TS" id="b3R-L2-TY3"/>
                         <outlet property="imageMain" destination="HPd-wm-xsf" id="nPT-o0-rzi"/>
-                        <outlet property="opponentView" destination="FoC-9e-z3d" id="TIX-af-jET"/>
+                        <outlet property="opponentView" destination="GoW-4r-ADK" id="Y6O-d5-7x0"/>
                         <outlet property="opponentWidth" destination="KdN-gs-T7F" id="RbX-NS-JUo"/>
+                        <outlet property="playerTeamImage" destination="hiP-ai-BBB" id="OZs-MI-fWg"/>
                         <outlet property="scrollView" destination="ATt-3x-CxC" id="DHl-Qa-fWE"/>
-                        <outlet property="teamView" destination="GoW-4r-ADK" id="Lwq-Wi-hP9"/>
+                        <outlet property="teamView" destination="FoC-9e-z3d" id="1aw-LN-hjY"/>
                         <outlet property="teamWidth" destination="HlA-BE-abT" id="TA7-T7-W9K"/>
-                        <outlet property="testImage" destination="c8z-3K-dlh" id="CVc-EK-9K5"/>
-                        <outlet property="testView" destination="xbu-pa-9TS" id="tGI-rb-BHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

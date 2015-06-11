@@ -11,15 +11,21 @@ import UIKit
 class StrategyViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageMain: UIImageView!
+    
     @IBOutlet weak var arrowOpponentImageView: UIImageView!
     @IBOutlet weak var arrowTeamImageView: UIImageView!
+    
     @IBOutlet weak var teamView: UIView!
     @IBOutlet weak var opponentView: UIView!
+    
     @IBOutlet weak var teamWidth: NSLayoutConstraint!
     @IBOutlet weak var opponentWidth: NSLayoutConstraint!
-    @IBOutlet weak var testImage: UIImageView!
     
-    @IBOutlet weak var testView: UIView!
+    @IBOutlet weak var playerTeamImage: UIImageView!
+    
+    @IBOutlet weak var ballView: UIView!
+    @IBOutlet weak var ballImage: UIImageView!
+    
     var isPanelExpanded = false;
 
     override func viewDidLoad() {
@@ -28,9 +34,9 @@ class StrategyViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         var pan = UIPanGestureRecognizer(target:self, action:"pan:")
-        self.testView.addGestureRecognizer(pan)
+        self.ballView.addGestureRecognizer(pan)
         
-        self.testImage.tintColor = UIColor.blueColor()
+        self.playerTeamImage.tintColor = UIColor.blueColor()
         
         self.scrollView.minimumZoomScale = 1.0
         self.scrollView.maximumZoomScale = 2.0
@@ -90,6 +96,9 @@ class StrategyViewController: UIViewController {
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         self.opponentWidth.constant = 50
         
+        //Set Image
+        self.playerTeamImage.image = UIImage(named: "player")
+
         
         self.view.layoutIfNeeded()
     }
@@ -102,13 +111,15 @@ class StrategyViewController: UIViewController {
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(0)
         self.opponentWidth.constant = 20
         
+        self.playerTeamImage.image = UIImage(named: "")
+
         self.view.layoutIfNeeded()
     }
     
     func pan(recognizer:UIPanGestureRecognizer) {
         var translation  = recognizer.translationInView(self.view!)
         
-        self.testView.transform = CGAffineTransformTranslate(self.testView.transform, translation.x, translation.y)
+        self.ballView.transform = CGAffineTransformTranslate(self.ballView.transform, translation.x, translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.view)
         
     }
