@@ -20,7 +20,6 @@ class StrategyViewController: UIViewController {
     @IBOutlet weak var opponentView: UIView!
     
     @IBOutlet weak var teamWidth: NSLayoutConstraint!
-    @IBOutlet weak var opponentWidth: NSLayoutConstraint!
     
     @IBOutlet weak var ballView: UIView!
     @IBOutlet weak var ballImage: UIImageView!
@@ -28,8 +27,6 @@ class StrategyViewController: UIViewController {
     @IBOutlet var drawView : AnyObject?
     
     var isPanelExpanded = false;
-    var isSelected = false;
-   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,12 +131,14 @@ class StrategyViewController: UIViewController {
         theDrawView.setNeedsDisplay()
     }
     
-    @IBAction func colorTapped(button: UIButton!){
+    @IBAction func colorTapped(button: UIBarButtonItem!){
         var theDrawView : DrawView = drawView as! DrawView
         var color : UIColor!
-        if(button.titleLabel!.text == "Black"){
+        if(button.title! == "Black"){
+            button.title = "Red"
             color = UIColor.blackColor()
-        }else if (button.titleLabel!.text == "Red"){
+        }else if (button.title! == "Red"){
+            button.title = "Black"
             color = UIColor.redColor()
         }
         theDrawView.drawColor = color

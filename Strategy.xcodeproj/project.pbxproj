@@ -90,8 +90,6 @@
 				C2D519271B2A11C500C5DB58 /* Images.xcassets */,
 				C29F81441B28A66A0049155C /* LaunchScreen.xib */,
 				C29F81391B28A66A0049155C /* Supporting Files */,
-				98CBBDAB1B2B5BAA00B48C3A /* DrawView.swift */,
-				98CBBDAD1B2B5C1E00B48C3A /* Line.swift */,
 			);
 			path = Strategy;
 			sourceTree = "<group>";
@@ -132,6 +130,8 @@
 		C29F815E1B28B1720049155C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				98CBBDAD1B2B5C1E00B48C3A /* Line.swift */,
+				98CBBDAB1B2B5BAA00B48C3A /* DrawView.swift */,
 				C26033031B2B3EE60055B46B /* PlayerView.swift */,
 			);
 			name = Model;
