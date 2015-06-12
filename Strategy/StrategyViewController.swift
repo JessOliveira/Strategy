@@ -92,10 +92,12 @@ class StrategyViewController: UIViewController {
         
         //Change button to expand state
         self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        self.teamWidth.constant = 30
+        
+        self.teamWidth.constant = self.view.frame.width*0.1
+
+        self.teamWidth.priority = 900
         
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        self.opponentWidth.constant = 30
         
         self.view.layoutIfNeeded()
     }
@@ -103,10 +105,9 @@ class StrategyViewController: UIViewController {
     func compressPanel() {
         //Chnage button to compress state
         self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(0)
-        self.teamWidth.constant = 20
+        self.teamWidth.priority = 500
         
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(0)
-        self.opponentWidth.constant = 20
 
         self.view.layoutIfNeeded()
     }
