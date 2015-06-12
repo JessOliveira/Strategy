@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98CBBDAC1B2B5BAA00B48C3A /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CBBDAB1B2B5BAA00B48C3A /* DrawView.swift */; };
+		98CBBDAE1B2B5C1E00B48C3A /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CBBDAD1B2B5C1E00B48C3A /* Line.swift */; };
 		C26033041B2B3EE60055B46B /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26033031B2B3EE60055B46B /* PlayerView.swift */; };
 		C29F813C1B28A66A0049155C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F813B1B28A66A0049155C /* AppDelegate.swift */; };
 		C29F81411B28A66A0049155C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29F813F1B28A66A0049155C /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98CBBDAB1B2B5BAA00B48C3A /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		98CBBDAD1B2B5C1E00B48C3A /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		C26033031B2B3EE60055B46B /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C29F81361B28A66A0049155C /* Strategy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strategy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29F813A1B28A66A0049155C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				C2D519271B2A11C500C5DB58 /* Images.xcassets */,
 				C29F81441B28A66A0049155C /* LaunchScreen.xib */,
 				C29F81391B28A66A0049155C /* Supporting Files */,
+				98CBBDAB1B2B5BAA00B48C3A /* DrawView.swift */,
+				98CBBDAD1B2B5C1E00B48C3A /* Line.swift */,
 			);
 			path = Strategy;
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 				TargetAttributes = {
 					C29F81351B28A66A0049155C = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = RRX4YBTZ2B;
 					};
 					C29F814A1B28A66A0049155C = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -233,7 +240,9 @@
 			files = (
 				C26033041B2B3EE60055B46B /* PlayerView.swift in Sources */,
 				C29F813C1B28A66A0049155C /* AppDelegate.swift in Sources */,
+				98CBBDAC1B2B5BAA00B48C3A /* DrawView.swift in Sources */,
 				C29F815C1B28B1590049155C /* StrategyViewController.swift in Sources */,
+				98CBBDAE1B2B5C1E00B48C3A /* Line.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,9 +369,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Strategy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -370,9 +382,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Strategy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

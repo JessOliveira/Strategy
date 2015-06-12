@@ -25,8 +25,11 @@ class StrategyViewController: UIViewController {
     @IBOutlet weak var ballView: UIView!
     @IBOutlet weak var ballImage: UIImageView!
     
+    @IBOutlet var drawView : AnyObject?
+    
     var isPanelExpanded = false;
     var isSelected = false;
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,5 +126,24 @@ class StrategyViewController: UIViewController {
             recognizer.setTranslation(CGPointZero, inView: self.view)
         
     }
+    
+    @IBAction func clearTapped(){
+        var theDrawView : DrawView = drawView as! DrawView
+        theDrawView.lines = []
+        theDrawView.setNeedsDisplay()
+    }
+    
+    @IBAction func colorTapped(button: UIButton!){
+        var theDrawView : DrawView = drawView as! DrawView
+        var color : UIColor!
+        if(button.titleLabel!.text == "Black"){
+            color = UIColor.blackColor()
+        }else if (button.titleLabel!.text == "Red"){
+            color = UIColor.redColor()
+        }
+        theDrawView.drawColor = color
+    }
+    
+    
 
 }
