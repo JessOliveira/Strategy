@@ -10,7 +10,8 @@ import UIKit
 
 class StrategyViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageMain: UIImageView!
+//    @IBOutlet weak var imageMain: UIImageView!
+    @IBOutlet weak var mainView: UIView!
     
     @IBOutlet weak var arrowOpponentImageView: UIImageView!
     @IBOutlet weak var arrowTeamImageView: UIImageView!
@@ -21,13 +22,11 @@ class StrategyViewController: UIViewController {
     @IBOutlet weak var teamWidth: NSLayoutConstraint!
     @IBOutlet weak var opponentWidth: NSLayoutConstraint!
     
-    @IBOutlet weak var playerTeamImage: UIImageView!
-    @IBOutlet weak var playerTeamView: UIView!
-    
     @IBOutlet weak var ballView: UIView!
     @IBOutlet weak var ballImage: UIImageView!
     
     var isPanelExpanded = false;
+    var isSelected = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +36,10 @@ class StrategyViewController: UIViewController {
         var pan = UIPanGestureRecognizer(target:self, action:"pan:")
         self.ballView.addGestureRecognizer(pan)
         
-        var panPLayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
-        self.playerTeamView.addGestureRecognizer(panPLayer)
-        
-        self.playerTeamImage.tintColor = UIColor.blueColor()
-        
         self.scrollView.minimumZoomScale = 1.0
         self.scrollView.maximumZoomScale = 2.0
         self.scrollView.zoomScale = 0.2
-        self.scrollView.clipsToBounds = true
+        self.scrollView.clipsToBounds = false
         self.scrollView.contentSize = self.view.frame.size
     }
 
@@ -72,7 +66,7 @@ class StrategyViewController: UIViewController {
     
     //MARK: Delegates
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return self.imageMain
+        return self.mainView
     }
     
     
@@ -95,14 +89,10 @@ class StrategyViewController: UIViewController {
         
         //Change button to expand state
         self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        self.teamWidth.constant = 50
+        self.teamWidth.constant = 30
         
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        self.opponentWidth.constant = 50
-        
-        //Set Image
-        self.playerTeamImage.image = UIImage(named: "player")
-
+        self.opponentWidth.constant = 30
         
         self.view.layoutIfNeeded()
     }
@@ -114,8 +104,6 @@ class StrategyViewController: UIViewController {
         
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(0)
         self.opponentWidth.constant = 20
-        
-        self.playerTeamImage.image = UIImage(named: "")
 
         self.view.layoutIfNeeded()
     }
@@ -131,8 +119,9 @@ class StrategyViewController: UIViewController {
     func panPlayer(recognizer:UIPanGestureRecognizer) {
         var translation  = recognizer.translationInView(self.view!)
         
-        self.playerTeamView.transform = CGAffineTransformTranslate(self.playerTeamView.transform, translation.x, translation.y)
-        recognizer.setTranslation(CGPointZero, inView: self.view)
-            }
+//            self.playerTeamView.transform = CGAffineTransformTranslate(self.playerTeamView.transform, translation.x, translation.y)
+            recognizer.setTranslation(CGPointZero, inView: self.view)
+        
+    }
 
 }
