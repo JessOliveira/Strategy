@@ -3,7 +3,7 @@
 //  Strategy
 //
 //  Created by Jessica Oliveira on 10/06/15.
-//  Copyright (c) 2015 Jessica Oliveira. All rights reserved.
+//  Copyright (c) 2015 Paula Marinho Zago. All rights reserved.
 //
 
 import UIKit
