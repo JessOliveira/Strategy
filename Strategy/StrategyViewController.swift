@@ -3,7 +3,7 @@
 //  Strategy
 //
 //  Created by Jessica Oliveira on 10/06/15.
-//  Copyright (c) 2015 Jessica Oliveira. All rights reserved.
+//  Copyright (c) 2015 Paula Marinho Zago. All rights reserved.
 //
 
 import UIKit
@@ -69,7 +69,6 @@ class StrategyViewController: UIViewController {
         return self.mainView
     }
     
-    
     //MARK: Tap
     func tapPanel(gesture:UITapGestureRecognizer) {
         
@@ -134,16 +133,17 @@ class StrategyViewController: UIViewController {
     @IBAction func colorTapped(button: UIBarButtonItem!){
         var theDrawView : DrawView = drawView as! DrawView
         var color : UIColor!
-        if(button.title! == "Black"){
-            button.title = "Red"
+        if(button.title! == "Preto"){
             color = UIColor.blackColor()
-        }else if (button.title! == "Red"){
-            button.title = "Black"
+        }else if (button.title! == "Vermelho"){
             color = UIColor.redColor()
+        }else if (button.title! == "Azul"){
+            color = UIColor.blueColor()
+        }else if (button.title! == "Branco"){
+            color = UIColor.whiteColor()
+        }else if (button.title! == "Amarelo"){
+            color = UIColor.yellowColor()
         }
         theDrawView.drawColor = color
     }
-    
-    
-
 }
