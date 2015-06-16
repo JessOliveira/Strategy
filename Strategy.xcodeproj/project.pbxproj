@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98050F161B30ABDB008F44FD /* Add User-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F041B30ABDB008F44FD /* Add User-50.png */; };
+		98050F171B30ABDB008F44FD /* Checked User-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F051B30ABDB008F44FD /* Checked User-50.png */; };
+		98050F181B30ABDB008F44FD /* Delete-50-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F061B30ABDB008F44FD /* Delete-50-2.png */; };
+		98050F191B30ABDB008F44FD /* Edit-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F071B30ABDB008F44FD /* Edit-50.png */; };
+		98050F1A1B30ABDB008F44FD /* Erase-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F081B30ABDB008F44FD /* Erase-50.png */; };
+		98050F1B1B30ABDB008F44FD /* Eraser-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F091B30ABDB008F44FD /* Eraser-50.png */; };
+		98050F1C1B30ABDB008F44FD /* Football2-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F0A1B30ABDB008F44FD /* Football2-50.png */; };
+		98050F1D1B30ABDB008F44FD /* Foul Filled-50-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F0B1B30ABDB008F44FD /* Foul Filled-50-2.png */; };
+		98050F1E1B30ABDB008F44FD /* Foul Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F0C1B30ABDB008F44FD /* Foul Filled-50.png */; };
+		98050F1F1B30ABDB008F44FD /* Remove User-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F0D1B30ABDB008F44FD /* Remove User-50.png */; };
+		98050F201B30ABDB008F44FD /* Resize Horizontal Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F0E1B30ABDB008F44FD /* Resize Horizontal Filled-50.png */; };
+		98050F211B30ABDB008F44FD /* Rounded Rectangle-50-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F0F1B30ABDB008F44FD /* Rounded Rectangle-50-2.png */; };
+		98050F221B30ABDB008F44FD /* Rounded Rectangle-50-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F101B30ABDB008F44FD /* Rounded Rectangle-50-3.png */; };
+		98050F231B30ABDB008F44FD /* Rounded Rectangle-50-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F111B30ABDB008F44FD /* Rounded Rectangle-50-4.png */; };
+		98050F241B30ABDB008F44FD /* Rounded Rectangle-50-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F121B30ABDB008F44FD /* Rounded Rectangle-50-5.png */; };
+		98050F251B30ABDB008F44FD /* Rounded Rectangle-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F131B30ABDB008F44FD /* Rounded Rectangle-50.png */; };
+		98050F261B30ABDB008F44FD /* Stadium-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F141B30ABDB008F44FD /* Stadium-50.png */; };
+		98050F271B30ABDB008F44FD /* User-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 98050F151B30ABDB008F44FD /* User-50.png */; };
 		98CBBDAC1B2B5BAA00B48C3A /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CBBDAB1B2B5BAA00B48C3A /* DrawView.swift */; };
 		98CBBDAE1B2B5C1E00B48C3A /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CBBDAD1B2B5C1E00B48C3A /* Line.swift */; };
 		C26033041B2B3EE60055B46B /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26033031B2B3EE60055B46B /* PlayerView.swift */; };
@@ -29,6 +47,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98050F041B30ABDB008F44FD /* Add User-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User-50.png"; sourceTree = "<group>"; };
+		98050F051B30ABDB008F44FD /* Checked User-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked User-50.png"; sourceTree = "<group>"; };
+		98050F061B30ABDB008F44FD /* Delete-50-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Delete-50-2.png"; sourceTree = "<group>"; };
+		98050F071B30ABDB008F44FD /* Edit-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Edit-50.png"; sourceTree = "<group>"; };
+		98050F081B30ABDB008F44FD /* Erase-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Erase-50.png"; sourceTree = "<group>"; };
+		98050F091B30ABDB008F44FD /* Eraser-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Eraser-50.png"; sourceTree = "<group>"; };
+		98050F0A1B30ABDB008F44FD /* Football2-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Football2-50.png"; sourceTree = "<group>"; };
+		98050F0B1B30ABDB008F44FD /* Foul Filled-50-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Foul Filled-50-2.png"; sourceTree = "<group>"; };
+		98050F0C1B30ABDB008F44FD /* Foul Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Foul Filled-50.png"; sourceTree = "<group>"; };
+		98050F0D1B30ABDB008F44FD /* Remove User-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Remove User-50.png"; sourceTree = "<group>"; };
+		98050F0E1B30ABDB008F44FD /* Resize Horizontal Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resize Horizontal Filled-50.png"; sourceTree = "<group>"; };
+		98050F0F1B30ABDB008F44FD /* Rounded Rectangle-50-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rounded Rectangle-50-2.png"; sourceTree = "<group>"; };
+		98050F101B30ABDB008F44FD /* Rounded Rectangle-50-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rounded Rectangle-50-3.png"; sourceTree = "<group>"; };
+		98050F111B30ABDB008F44FD /* Rounded Rectangle-50-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rounded Rectangle-50-4.png"; sourceTree = "<group>"; };
+		98050F121B30ABDB008F44FD /* Rounded Rectangle-50-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rounded Rectangle-50-5.png"; sourceTree = "<group>"; };
+		98050F131B30ABDB008F44FD /* Rounded Rectangle-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rounded Rectangle-50.png"; sourceTree = "<group>"; };
+		98050F141B30ABDB008F44FD /* Stadium-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stadium-50.png"; sourceTree = "<group>"; };
+		98050F151B30ABDB008F44FD /* User-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-50.png"; sourceTree = "<group>"; };
 		98CBBDAB1B2B5BAA00B48C3A /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		98CBBDAD1B2B5C1E00B48C3A /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		C26033031B2B3EE60055B46B /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -62,6 +98,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98050F031B30ABDB008F44FD /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				98050F041B30ABDB008F44FD /* Add User-50.png */,
+				98050F051B30ABDB008F44FD /* Checked User-50.png */,
+				98050F061B30ABDB008F44FD /* Delete-50-2.png */,
+				98050F071B30ABDB008F44FD /* Edit-50.png */,
+				98050F081B30ABDB008F44FD /* Erase-50.png */,
+				98050F091B30ABDB008F44FD /* Eraser-50.png */,
+				98050F0A1B30ABDB008F44FD /* Football2-50.png */,
+				98050F0B1B30ABDB008F44FD /* Foul Filled-50-2.png */,
+				98050F0C1B30ABDB008F44FD /* Foul Filled-50.png */,
+				98050F0D1B30ABDB008F44FD /* Remove User-50.png */,
+				98050F0E1B30ABDB008F44FD /* Resize Horizontal Filled-50.png */,
+				98050F0F1B30ABDB008F44FD /* Rounded Rectangle-50-2.png */,
+				98050F101B30ABDB008F44FD /* Rounded Rectangle-50-3.png */,
+				98050F111B30ABDB008F44FD /* Rounded Rectangle-50-4.png */,
+				98050F121B30ABDB008F44FD /* Rounded Rectangle-50-5.png */,
+				98050F131B30ABDB008F44FD /* Rounded Rectangle-50.png */,
+				98050F141B30ABDB008F44FD /* Stadium-50.png */,
+				98050F151B30ABDB008F44FD /* User-50.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		C29F812D1B28A66A0049155C = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +144,7 @@
 		C29F81381B28A66A0049155C /* Strategy */ = {
 			isa = PBXGroup;
 			children = (
+				98050F031B30ABDB008F44FD /* Icons */,
 				C29F815E1B28B1720049155C /* Model */,
 				C29F815D1B28B1620049155C /* Controllers */,
 				C29F813B1B28A66A0049155C /* AppDelegate.swift */,
@@ -218,8 +280,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98050F211B30ABDB008F44FD /* Rounded Rectangle-50-2.png in Resources */,
+				98050F201B30ABDB008F44FD /* Resize Horizontal Filled-50.png in Resources */,
+				98050F261B30ABDB008F44FD /* Stadium-50.png in Resources */,
+				98050F171B30ABDB008F44FD /* Checked User-50.png in Resources */,
+				98050F1E1B30ABDB008F44FD /* Foul Filled-50.png in Resources */,
+				98050F1F1B30ABDB008F44FD /* Remove User-50.png in Resources */,
+				98050F221B30ABDB008F44FD /* Rounded Rectangle-50-3.png in Resources */,
+				98050F1A1B30ABDB008F44FD /* Erase-50.png in Resources */,
+				98050F231B30ABDB008F44FD /* Rounded Rectangle-50-4.png in Resources */,
+				98050F1C1B30ABDB008F44FD /* Football2-50.png in Resources */,
+				98050F241B30ABDB008F44FD /* Rounded Rectangle-50-5.png in Resources */,
+				98050F251B30ABDB008F44FD /* Rounded Rectangle-50.png in Resources */,
+				98050F161B30ABDB008F44FD /* Add User-50.png in Resources */,
+				98050F191B30ABDB008F44FD /* Edit-50.png in Resources */,
+				98050F181B30ABDB008F44FD /* Delete-50-2.png in Resources */,
+				98050F271B30ABDB008F44FD /* User-50.png in Resources */,
 				C2D519281B2A11C500C5DB58 /* Images.xcassets in Resources */,
 				C29F81411B28A66A0049155C /* Main.storyboard in Resources */,
+				98050F1D1B30ABDB008F44FD /* Foul Filled-50-2.png in Resources */,
+				98050F1B1B30ABDB008F44FD /* Eraser-50.png in Resources */,
 				C29F81461B28A66A0049155C /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

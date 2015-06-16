@@ -16,6 +16,7 @@
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="kh7-wL-z43">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </toolbar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Goa-su-628"/>
@@ -64,9 +65,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Wg-WyQ" customClass="DrawView" customModule="Strategy" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="536"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <variation key="widthClass=regular" fixedFrame="YES">
-                                                    <rect key="frame" x="372" y="-107" width="760" height="536"/>
-                                                </variation>
                                             </view>
                                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-pa-9TS">
                                                 <rect key="frame" x="260" y="247" width="40" height="40"/>
@@ -334,36 +332,61 @@
                         </variation>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Clear" id="vDh-5b-zmO">
-                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="100" maxY="0.0"/>
+                        <barButtonItem image="Stadium-50.png" id="iKl-6N-wHh" colorLabel="IBBuiltInLabel-Red">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem image="Edit-50.png" id="qkc-5L-qYs">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem image="Erase-50.png" id="Kxh-rs-YOv" colorLabel="IBBuiltInLabel-Red">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem image="Eraser-50.png" id="MVx-Cv-vn8">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="clearTapped" destination="vXZ-lx-hvc" id="oUV-aS-xHQ"/>
+                                <action selector="clearTapped" destination="vXZ-lx-hvc" id="Kxq-34-PMX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Vermelho" id="B0z-xq-dRO">
+                        <barButtonItem tag="1" image="Rounded Rectangle-50-2.png" id="ono-5y-PKa" colorLabel="IBBuiltInLabel-Purple">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="IvM-E7-RYc"/>
+                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="vCH-09-Rc7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Preto" id="ICk-8F-8YR">
+                        <barButtonItem tag="2" image="Rounded Rectangle-50-2.png" id="aWt-Tu-LAd">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="NjC-Zb-FgR"/>
+                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="v9f-Yv-yXU"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Azul" id="jgM-l9-fnS">
+                        <barButtonItem tag="3" image="Rounded Rectangle-50-2.png" id="GI4-R8-HjC">
+                            <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="Aor-bR-Zzm"/>
+                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="5hj-RQ-ib2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Branco" id="rS0-fZ-AHE">
+                        <barButtonItem tag="4" title="Item" image="Rounded Rectangle-50-2.png" id="0oe-ia-6eo">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="MKE-6c-v7f"/>
+                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="k1d-pD-bbm"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Amarelo" id="6QW-Ym-a2g">
+                        <barButtonItem tag="5" image="Rounded Rectangle-50-2.png" id="EvI-xr-61b">
                             <connections>
-                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="QHB-0I-4K4"/>
+                                <action selector="colorTapped:" destination="vXZ-lx-hvc" id="FBh-1K-vBq"/>
                             </connections>
+                        </barButtonItem>
+                        <barButtonItem image="Add User-50.png" id="mPP-Wt-AF4">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem image="Resize Horizontal Filled-50.png" id="0BI-o1-5sO">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem image="Remove User-50.png" id="o3T-qv-U7x">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem image="Delete-50-2.png" id="75l-FS-xXJ">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="qdP-AH-Xmh"/>
@@ -382,13 +405,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="238"/>
+            <point key="canvasLocation" x="23.25" y="238"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Add User-50.png" width="50" height="50"/>
+        <image name="Delete-50-2.png" width="50" height="50"/>
+        <image name="Edit-50.png" width="50" height="50"/>
+        <image name="Erase-50.png" width="50" height="50"/>
+        <image name="Eraser-50.png" width="50" height="50"/>
+        <image name="Remove User-50.png" width="50" height="50"/>
+        <image name="Resize Horizontal Filled-50.png" width="50" height="50"/>
+        <image name="Rounded Rectangle-50-2.png" width="50" height="50"/>
+        <image name="Stadium-50.png" width="50" height="50"/>
         <image name="arrow" width="50" height="50"/>
         <image name="arrowOther" width="50" height="50"/>
         <image name="ball" width="640" height="480"/>
         <image name="soccer2" width="1920" height="1200"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
