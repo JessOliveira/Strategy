@@ -62,10 +62,6 @@
                                                     <rect key="frame" x="8" y="8" width="760" height="537"/>
                                                 </variation>
                                             </imageView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Wg-WyQ" customClass="DrawView" customModule="Strategy" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="560" height="536"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
                                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-pa-9TS">
                                                 <rect key="frame" x="260" y="247" width="40" height="40"/>
                                                 <subviews>
@@ -90,6 +86,13 @@
                                                 </constraints>
                                                 <variation key="widthClass=regular" misplaced="YES">
                                                     <rect key="frame" x="360" y="247" width="40" height="40"/>
+                                                </variation>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Wg-WyQ" customClass="DrawView" customModule="Strategy" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="536"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <variation key="widthClass=regular" misplaced="YES">
+                                                    <rect key="frame" x="42" y="47" width="760" height="536"/>
                                                 </variation>
                                             </view>
                                         </subviews>
@@ -295,6 +298,15 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2d-2s-w7I">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="-9" y="552" width="46" height="30"/>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -320,6 +332,9 @@
                             <constraint firstAttribute="height" secondItem="wMQ-8T-dQo" secondAttribute="height" multiplier="0.9" id="r3l-Z0-H9y"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="f2d-2s-w7I"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="dm1-0z-o8b"/>
                                 <exclude reference="0hR-BV-nKz"/>
@@ -330,62 +345,67 @@
                                 <exclude reference="GwJ-iR-fqB"/>
                             </mask>
                         </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="f2d-2s-w7I"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
-                        <barButtonItem image="Stadium-50.png" id="iKl-6N-wHh" colorLabel="IBBuiltInLabel-Red">
+                        <barButtonItem image="Stadium-50.png" id="iKl-6N-wHh" userLabel="Campo" colorLabel="IBBuiltInLabel-Red">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem image="Edit-50.png" id="qkc-5L-qYs">
+                        <barButtonItem image="Edit-50.png" id="qkc-5L-qYs" userLabel="Desenhar">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem image="Erase-50.png" id="Kxh-rs-YOv" colorLabel="IBBuiltInLabel-Red">
+                        <barButtonItem image="Erase-50.png" id="Kxh-rs-YOv" userLabel="Apagar" colorLabel="IBBuiltInLabel-Red">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem image="Eraser-50.png" id="MVx-Cv-vn8">
+                        <barButtonItem image="Eraser-50.png" id="MVx-Cv-vn8" userLabel="Apagar Tudo">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="clearTapped" destination="vXZ-lx-hvc" id="Kxq-34-PMX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem tag="1" image="Rounded Rectangle-50-2.png" id="ono-5y-PKa" colorLabel="IBBuiltInLabel-Purple">
+                        <barButtonItem tag="1" image="Rounded Rectangle-50-2.png" id="ono-5y-PKa" userLabel="Vermelho" colorLabel="IBBuiltInLabel-Purple">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="vCH-09-Rc7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem tag="2" image="Rounded Rectangle-50-2.png" id="aWt-Tu-LAd">
+                        <barButtonItem tag="2" image="Rounded Rectangle-50-2.png" id="aWt-Tu-LAd" userLabel="Azul">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="v9f-Yv-yXU"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem tag="3" image="Rounded Rectangle-50-2.png" id="GI4-R8-HjC">
+                        <barButtonItem tag="3" image="Rounded Rectangle-50-2.png" id="GI4-R8-HjC" userLabel="Amarelo">
                             <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="5hj-RQ-ib2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem tag="4" title="Item" image="Rounded Rectangle-50-2.png" id="0oe-ia-6eo">
+                        <barButtonItem tag="4" title="Item" image="Rounded Rectangle-50-2.png" id="0oe-ia-6eo" userLabel="Preto">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="k1d-pD-bbm"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem tag="5" image="Rounded Rectangle-50-2.png" id="EvI-xr-61b">
+                        <barButtonItem tag="5" image="Rounded Rectangle-50-2.png" id="EvI-xr-61b" userLabel="Branco">
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="FBh-1K-vBq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem image="Add User-50.png" id="mPP-Wt-AF4">
+                        <barButtonItem image="Add User-50.png" id="mPP-Wt-AF4" userLabel="Adicionar">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem image="Resize Horizontal Filled-50.png" id="0BI-o1-5sO">
+                        <barButtonItem image="Resize Horizontal Filled-50.png" id="0BI-o1-5sO" userLabel="Trocar">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem image="Remove User-50.png" id="o3T-qv-U7x">
+                        <barButtonItem image="Remove User-50.png" id="o3T-qv-U7x" userLabel="Remover">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem image="Delete-50-2.png" id="75l-FS-xXJ">
+                        <barButtonItem image="Delete-50-2.png" id="75l-FS-xXJ" userLabel="Excluir">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </toolbarItems>
