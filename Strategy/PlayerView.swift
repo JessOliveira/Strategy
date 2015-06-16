@@ -13,7 +13,8 @@ class PlayerView: UIView {
 //    let superView: UIView!
 //    let xPosConstraint:  NSLayoutConstraint!
 //    let yPosConstraint:  NSLayoutConstraint!
-//    var constraints: [NSLayoutConstraint]{  get {
+//    var constraints: [NSLayoutConstraint]{
+//        get {
 //            return [xPosConstraint, yPosConstraint]
 //        }
 //    }

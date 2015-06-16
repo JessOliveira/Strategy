@@ -69,7 +69,6 @@ class StrategyViewController: UIViewController {
         return self.mainView
     }
     
-    
     //MARK: Tap
     func tapPanel(gesture:UITapGestureRecognizer) {
         
@@ -147,7 +146,4 @@ class StrategyViewController: UIViewController {
         }
         theDrawView.drawColor = color
     }
-    
-    
-
 }
