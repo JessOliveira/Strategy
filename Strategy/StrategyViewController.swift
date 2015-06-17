@@ -191,14 +191,18 @@ class StrategyViewController: UIViewController {
     }
     
     @IBAction func changeMode(button: UIBarButtonItem!){
-//        if(self.isClear == true){
-//            for view in self.mainView!.subviews {
-//                    view.removeFromSuperview()
-//            }
-//            self.isClear = false
-//        }else{
-//            self.addPlayers()
-//        }
+        if(self.isClear == true){
+            for view in self.mainView!.subviews {
+                if let tag = view.tag {
+                    if tag != 101 {
+                        view.removeFromSuperview()
+                    }
+                }
+            }
+            self.isClear = false
+        }else{
+            self.addPlayers()
+        }
     }
     
 }
