@@ -61,9 +61,12 @@ class StrategyViewController: UIViewController {
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
         opponentView.addGestureRecognizer(tapIconOpponent)
         
+        var constX : CGFloat = 0.06
+        var constY : CGFloat = 0.43
+
         for  index in 0...10 {
             //teste de player de novo
-            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*0.4, self.view.frame.height*0.2, self.view.frame.width*0.05, self.view.frame.width*0.05))
+            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX, self.view.frame.height*constY, self.view.frame.width*0.05, self.view.frame.width*0.05))
         
             DynamicView.backgroundColor=UIColor.blueColor()
             DynamicView.layer.cornerRadius=20
@@ -72,6 +75,7 @@ class StrategyViewController: UIViewController {
             var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
             DynamicView.addGestureRecognizer(panPlayer)
             self.mainView.addSubview(DynamicView)
+            constX += 0.05
         }
         
     }
@@ -124,18 +128,17 @@ class StrategyViewController: UIViewController {
     }
     
     func pan(recognizer:UIPanGestureRecognizer) {
-        var translation  = recognizer.translationInView(self.view!)
+        var translation  = recognizer.translationInView(self.mainView!)
         
         self.ballView.transform = CGAffineTransformTranslate(self.ballView.transform, translation.x, translation.y)
-        recognizer.setTranslation(CGPointZero, inView: self.view)
+        recognizer.setTranslation(CGPointZero, inView: self.mainView)
         
     }
     
     func panPlayer(recognizer:UIPanGestureRecognizer) {
-        var translation  = recognizer.translationInView(self.view!)
+        var translation  = recognizer.translationInView(self.mainView!)
         recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
-        recognizer.setTranslation(CGPointZero, inView: self.view)
-    
+        recognizer.setTranslation(CGPointZero, inView: self.mainView)
 }
     
     @IBAction func clearTapped(){
