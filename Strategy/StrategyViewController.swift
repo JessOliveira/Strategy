@@ -25,7 +25,10 @@ class StrategyViewController: UIViewController {
     
     @IBOutlet var drawView : AnyObject?
     
+    
     var isPanelExpanded = false;
+
+    var isClear = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,39 +64,7 @@ class StrategyViewController: UIViewController {
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
         opponentView.addGestureRecognizer(tapIconOpponent)
         
-        var constX : [CGFloat] = [0.06, 0.11, 0.11, 0.21, 0.21, 0.26, 0.31, 0.31, 0.36, 0.36, 0.41]
-        var constY : [CGFloat] = [0.43, 0.23, 0.63, 0.13, 0.73, 0.43, 0.23, 0.63, 0.13, 0.73, 0.43]
-
-        for  index in 0...10 {
-            //teste de player de novo
-            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX[index], self.view.frame.height*constY[index], self.view.frame.width*0.05, self.view.frame.width*0.05))
-        
-            DynamicView.backgroundColor=UIColor.blueColor()
-            DynamicView.layer.cornerRadius=20
-            DynamicView.layer.borderWidth=2
-        
-            var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
-            DynamicView.addGestureRecognizer(panPlayer)
-            self.mainView.addSubview(DynamicView)
-
-        }
-        
-        constX = [0.86, 0.81, 0.81, 0.71, 0.71, 0.66, 0.61, 0.61, 0.56, 0.56, 0.51]
-        
-        for  index in 0...10 {
-            //teste de player de novo
-            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX[index], self.view.frame.height*constY[index], self.view.frame.width*0.05, self.view.frame.width*0.05))
-            
-            DynamicView.backgroundColor=UIColor.redColor()
-            DynamicView.layer.cornerRadius=20
-            DynamicView.layer.borderWidth=2
-            
-            var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
-            DynamicView.addGestureRecognizer(panPlayer)
-            self.mainView.addSubview(DynamicView)
-            
-        }
-        
+        self.addPlayers()
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -143,6 +114,7 @@ class StrategyViewController: UIViewController {
         self.view.layoutIfNeeded()
     }
     
+    // MARK: Pan Gesture Functions
     func pan(recognizer:UIPanGestureRecognizer) {
         var translation  = recognizer.translationInView(self.mainView!)
         
@@ -155,8 +127,46 @@ class StrategyViewController: UIViewController {
         var translation  = recognizer.translationInView(self.mainView!)
         recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.mainView)
-}
+    }
     
+    // MARK: AddPlayers Functions
+    func addPlayers(){
+        self.isClear = true;
+        
+        var constX : [CGFloat] = [0.06, 0.11, 0.11, 0.21, 0.21, 0.26, 0.31, 0.31, 0.36, 0.36, 0.41]
+        var constY : [CGFloat] = [0.43, 0.23, 0.63, 0.13, 0.73, 0.43, 0.23, 0.63, 0.13, 0.73, 0.43]
+        
+        for  index in 0...10 {
+            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX[index], self.view.frame.height*constY[index], self.view.frame.width*0.05, self.view.frame.width*0.05))
+            
+            DynamicView.backgroundColor=UIColor.blueColor()
+            DynamicView.layer.cornerRadius=20
+            DynamicView.layer.borderWidth=2
+            
+            var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
+            DynamicView.addGestureRecognizer(panPlayer)
+            self.drawView!.addSubview(DynamicView)
+            
+        }
+        
+        constX = [0.86, 0.81, 0.81, 0.71, 0.71, 0.66, 0.61, 0.61, 0.56, 0.56, 0.51]
+        
+        for  index in 0...10 {
+            //teste de player de novo
+            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX[index], self.view.frame.height*constY[index], self.view.frame.width*0.05, self.view.frame.width*0.05))
+            
+            DynamicView.backgroundColor=UIColor.redColor()
+            DynamicView.layer.cornerRadius=20
+            DynamicView.layer.borderWidth=2
+            
+            var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
+            DynamicView.addGestureRecognizer(panPlayer)
+            self.drawView!.addSubview(DynamicView)
+            
+        }
+    }
+    
+    // MARK: Configurations UIButtonItem
     @IBAction func clearTapped(){
         var theDrawView : DrawView = drawView as! DrawView
         theDrawView.lines = []
@@ -179,4 +189,16 @@ class StrategyViewController: UIViewController {
         }
         theDrawView.drawColor = color
     }
+    
+    @IBAction func changeMode(button: UIBarButtonItem!){
+        if(self.isClear == true){
+            for view in self.drawView!.subviews {
+                    view.removeFromSuperview()
+            }
+            self.isClear = false
+        }else{
+            self.addPlayers()
+        }
+    }
+    
 }

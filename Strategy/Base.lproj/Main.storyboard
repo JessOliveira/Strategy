@@ -44,7 +44,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMQ-8T-dQo">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="536"/>
                                         <subviews>
-                                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccer2" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-wm-xsf">
+                                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="scoccer" image="soccer2" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-wm-xsf">
                                                 <rect key="frame" x="0.0" y="-1" width="560" height="537"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="HPd-wm-xsf" secondAttribute="height" multiplier="750:509" id="7ZU-Fb-tx8"/>
@@ -62,11 +62,11 @@
                                                     <rect key="frame" x="8" y="8" width="760" height="537"/>
                                                 </variation>
                                             </imageView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHO-vT-1RD" userLabel="DrawView" customClass="DrawView" customModule="Strategy" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" restorationIdentifier="DrawView" translatesAutoresizingMaskIntoConstraints="NO" id="qHO-vT-1RD" userLabel="DrawView" customClass="DrawView" customModule="Strategy" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="536"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-pa-9TS" userLabel="ballView">
+                                            <view contentMode="scaleAspectFit" restorationIdentifier="ballView" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-pa-9TS" userLabel="ballView">
                                                 <rect key="frame" x="260" y="247" width="40" height="40"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="c8z-3K-dlh">
@@ -351,6 +351,9 @@
                     <toolbarItems>
                         <barButtonItem image="Stadium-50.png" id="iKl-6N-wHh" userLabel="Campo" colorLabel="IBBuiltInLabel-Red">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeMode:" destination="vXZ-lx-hvc" id="yRw-5Q-gVl"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="uYI-ey-cDg"/>
                         <barButtonItem image="Edit-50.png" id="qkc-5L-qYs" userLabel="Desenhar">
