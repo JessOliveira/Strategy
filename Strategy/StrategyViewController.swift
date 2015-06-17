@@ -50,6 +50,9 @@ class StrategyViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.arrowTeamImageView.tintColor = UIColor.redColor()
+        self.arrowOpponentImageView.tintColor = UIColor.redColor()
+        
         //create tap in icon image
         let tapIcon = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
             teamView.addGestureRecognizer(tapIcon)
@@ -58,11 +61,18 @@ class StrategyViewController: UIViewController {
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
         opponentView.addGestureRecognizer(tapIconOpponent)
         
-        var DynamicView=UIView(frame: CGRectMake(100, 200, 30, 30))
-        DynamicView.backgroundColor=UIColor.blueColor()
-        DynamicView.layer.cornerRadius=25
-        DynamicView.layer.borderWidth=2
-        self.view.addSubview(DynamicView)
+//        for(Int i==0; i<=11; i++){
+            //teste de player de novo
+            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*0.4, self.view.frame.height*0.2, self.view.frame.width*0.05, self.view.frame.width*0.05))
+        
+            DynamicView.backgroundColor=UIColor.blueColor()
+            DynamicView.layer.cornerRadius=20
+            DynamicView.layer.borderWidth=2
+        
+            var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
+            DynamicView.addGestureRecognizer(panPlayer)
+            self.view.addSubview(DynamicView)
+//        }
         
     }
     
@@ -120,7 +130,14 @@ class StrategyViewController: UIViewController {
         recognizer.setTranslation(CGPointZero, inView: self.view)
         
     }
-        
+    
+    func panPlayer(recognizer:UIPanGestureRecognizer) {
+        var translation  = recognizer.translationInView(self.view!)
+        recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
+        recognizer.setTranslation(CGPointZero, inView: self.view)
+    
+}
+    
     @IBAction func clearTapped(){
         var theDrawView : DrawView = drawView as! DrawView
         theDrawView.lines = []

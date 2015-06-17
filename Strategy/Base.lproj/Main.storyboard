@@ -301,11 +301,15 @@
                         <constraints>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="top" secondItem="geg-g1-dWa" secondAttribute="bottom" id="0hR-BV-nKz"/>
                             <constraint firstItem="hTC-eu-3xn" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.05" priority="800" id="0io-qP-2GS"/>
+                            <constraint firstAttribute="trailing" secondItem="ATt-3x-CxC" secondAttribute="trailing" constant="20" id="1lH-Fk-6K5"/>
+                            <constraint firstItem="ATt-3x-CxC" firstAttribute="leading" secondItem="hTC-eu-3xn" secondAttribute="trailing" id="4Y1-Rb-eOP"/>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="75L-gt-cBZ"/>
                             <constraint firstItem="ATt-3x-CxC" firstAttribute="leading" secondItem="geg-g1-dWa" secondAttribute="trailing" id="7gf-0u-Oix"/>
                             <constraint firstItem="geg-g1-dWa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="EVd-oz-Pe0"/>
                             <constraint firstAttribute="trailing" secondItem="geg-g1-dWa" secondAttribute="trailing" id="G6G-la-W3h"/>
+                            <constraint firstItem="ATt-3x-CxC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="Gb0-ub-eb9"/>
                             <constraint firstItem="geg-g1-dWa" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.05" id="GwJ-iR-fqB"/>
+                            <constraint firstItem="geg-g1-dWa" firstAttribute="leading" secondItem="ATt-3x-CxC" secondAttribute="trailing" id="IRQ-7B-ujW"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="geg-g1-dWa" secondAttribute="bottom" id="JKG-tU-YUb"/>
                             <constraint firstItem="hTC-eu-3xn" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Lu3-k6-hs7"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hTC-eu-3xn" secondAttribute="bottom" id="MA9-Y3-nLB"/>
@@ -327,11 +331,15 @@
                             <mask key="constraints">
                                 <exclude reference="dm1-0z-o8b"/>
                                 <exclude reference="0hR-BV-nKz"/>
+                                <exclude reference="4Y1-Rb-eOP"/>
                                 <exclude reference="75L-gt-cBZ"/>
                                 <exclude reference="7gf-0u-Oix"/>
                                 <exclude reference="QsC-cf-KOQ"/>
+                                <exclude reference="WVp-YH-hGd"/>
+                                <exclude reference="byU-KK-Oyy"/>
                                 <exclude reference="r3l-Z0-H9y"/>
                                 <exclude reference="GwJ-iR-fqB"/>
+                                <exclude reference="IRQ-7B-ujW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
