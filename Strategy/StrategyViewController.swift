@@ -10,7 +10,6 @@ import UIKit
 
 class StrategyViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
-//    @IBOutlet weak var imageMain: UIImageView!
     @IBOutlet weak var mainView: UIView!
     
     @IBOutlet weak var arrowOpponentImageView: UIImageView!
@@ -116,13 +115,13 @@ class StrategyViewController: UIViewController {
         
     }
     
-    func panPlayer(recognizer:UIPanGestureRecognizer) {
-        var translation  = recognizer.translationInView(self.view!)
-        
-//            self.playerTeamView.transform = CGAffineTransformTranslate(self.playerTeamView.transform, translation.x, translation.y)
-            recognizer.setTranslation(CGPointZero, inView: self.view)
-        
-    }
+//    func panPlayer(recognizer:UIPanGestureRecognizer) {
+//        var translation  = recognizer.translationInView(self.view!)
+//        
+////            self.playerTeamView.transform = CGAffineTransformTranslate(self.playerTeamView.transform, translation.x, translation.y)
+//            recognizer.setTranslation(CGPointZero, inView: self.view)
+//        
+//    }
     
     @IBAction func clearTapped(){
         var theDrawView : DrawView = drawView as! DrawView
