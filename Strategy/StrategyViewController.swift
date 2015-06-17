@@ -61,12 +61,12 @@ class StrategyViewController: UIViewController {
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
         opponentView.addGestureRecognizer(tapIconOpponent)
         
-        var constX : CGFloat = 0.06
-        var constY : CGFloat = 0.43
+        var constX : [CGFloat] = [0.06, 0.11, 0.11, 0.21, 0.21, 0.26, 0.31, 0.31, 0.36, 0.36, 0.41]
+        var constY : [CGFloat] = [0.43, 0.23, 0.63, 0.13, 0.73, 0.43, 0.23, 0.63, 0.13, 0.73, 0.43]
 
         for  index in 0...10 {
             //teste de player de novo
-            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX, self.view.frame.height*constY, self.view.frame.width*0.05, self.view.frame.width*0.05))
+            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX[index], self.view.frame.height*constY[index], self.view.frame.width*0.05, self.view.frame.width*0.05))
         
             DynamicView.backgroundColor=UIColor.blueColor()
             DynamicView.layer.cornerRadius=20
@@ -75,7 +75,7 @@ class StrategyViewController: UIViewController {
             var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
             DynamicView.addGestureRecognizer(panPlayer)
             self.mainView.addSubview(DynamicView)
-            constX += 0.05
+
         }
         
     }
