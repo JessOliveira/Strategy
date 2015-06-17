@@ -133,16 +133,16 @@ class StrategyViewController: UIViewController {
     @IBAction func colorTapped(button: UIBarButtonItem!){
         var theDrawView : DrawView = drawView as! DrawView
         var color : UIColor!
-        if(button.title! == "Preto"){
-            color = UIColor.blackColor()
-        }else if (button.title! == "Vermelho"){
+        if(button.tag == 1){
             color = UIColor.redColor()
-        }else if (button.title! == "Azul"){
+        }else if (button.tag == 2){
             color = UIColor.blueColor()
-        }else if (button.title! == "Branco"){
-            color = UIColor.whiteColor()
-        }else if (button.title! == "Amarelo"){
+        }else if (button.tag == 3){
             color = UIColor.yellowColor()
+        }else if (button.tag == 4){
+            color = UIColor.blackColor()
+        }else if (button.tag == 5){
+            color = UIColor.whiteColor()
         }
         theDrawView.drawColor = color
     }
