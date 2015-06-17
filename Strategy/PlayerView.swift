@@ -9,7 +9,17 @@
 import UIKit
 
 class PlayerView: UIView {
-    
+    required init(coder aDecoder: NSCoder){
+        super.init(coder: aDecoder)
+    }
+
+//        func panPlayer(recognizer:UIPanGestureRecognizer) {
+//            var translation  = recognizer.translationInView(self.view!)
+//    
+//                self.playerTeamView.transform = CGAffineTransformTranslate(self.playerTeamView.transform, translation.x, translation.y)
+//                recognizer.setTranslation(CGPointZero, inView: self.view)
+//    
+//        }
 
 }
 

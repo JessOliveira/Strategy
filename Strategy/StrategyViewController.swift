@@ -58,6 +58,12 @@ class StrategyViewController: UIViewController {
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
         opponentView.addGestureRecognizer(tapIconOpponent)
         
+        var DynamicView=UIView(frame: CGRectMake(100, 200, 30, 30))
+        DynamicView.backgroundColor=UIColor.blueColor()
+        DynamicView.layer.cornerRadius=25
+        DynamicView.layer.borderWidth=2
+        self.view.addSubview(DynamicView)
+        
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -114,15 +120,7 @@ class StrategyViewController: UIViewController {
         recognizer.setTranslation(CGPointZero, inView: self.view)
         
     }
-    
-//    func panPlayer(recognizer:UIPanGestureRecognizer) {
-//        var translation  = recognizer.translationInView(self.view!)
-//        
-////            self.playerTeamView.transform = CGAffineTransformTranslate(self.playerTeamView.transform, translation.x, translation.y)
-//            recognizer.setTranslation(CGPointZero, inView: self.view)
-//        
-//    }
-    
+        
     @IBAction func clearTapped(){
         var theDrawView : DrawView = drawView as! DrawView
         theDrawView.lines = []
