@@ -145,7 +145,7 @@ class StrategyViewController: UIViewController {
             
             var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
             DynamicView.addGestureRecognizer(panPlayer)
-            self.drawView!.addSubview(DynamicView)
+            self.mainView!.addSubview(DynamicView)
             
         }
         
@@ -161,7 +161,7 @@ class StrategyViewController: UIViewController {
             
             var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
             DynamicView.addGestureRecognizer(panPlayer)
-            self.drawView!.addSubview(DynamicView)
+            self.mainView!.addSubview(DynamicView)
             
         }
     }
@@ -191,14 +191,14 @@ class StrategyViewController: UIViewController {
     }
     
     @IBAction func changeMode(button: UIBarButtonItem!){
-        if(self.isClear == true){
-            for view in self.drawView!.subviews {
-                    view.removeFromSuperview()
-            }
-            self.isClear = false
-        }else{
-            self.addPlayers()
-        }
+//        if(self.isClear == true){
+//            for view in self.mainView!.subviews {
+//                    view.removeFromSuperview()
+//            }
+//            self.isClear = false
+//        }else{
+//            self.addPlayers()
+//        }
     }
     
 }
