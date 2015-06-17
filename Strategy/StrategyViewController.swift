@@ -61,7 +61,7 @@ class StrategyViewController: UIViewController {
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
         opponentView.addGestureRecognizer(tapIconOpponent)
         
-//        for(Int i==0; i<=11; i++){
+        for  index in 0...10 {
             //teste de player de novo
             var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*0.4, self.view.frame.height*0.2, self.view.frame.width*0.05, self.view.frame.width*0.05))
         
@@ -71,8 +71,8 @@ class StrategyViewController: UIViewController {
         
             var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
             DynamicView.addGestureRecognizer(panPlayer)
-            self.view.addSubview(DynamicView)
-//        }
+            self.mainView.addSubview(DynamicView)
+        }
         
     }
     
