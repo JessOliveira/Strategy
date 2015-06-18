@@ -12,18 +12,26 @@ class PlayerView: UIView {
     
     var color: UIColor = UIColor.blackColor()
     var text: String = ""
+    var label: UILabel = UILabel()
     var mainView: UIView = UIView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
     
     
     init(color: UIColor, text: Int, constX: CGFloat, constY: CGFloat, view: UIView, mainView: UIView){
         self.color = color
         self.text = String(text)
         self.mainView = mainView
+        
         super.init(frame: CGRectMake(view.frame.width*constX, view.frame.height*constY, view.frame.width*0.05, view.frame.width*0.05))
+        
         self.setColor(self, color: color)
+        
         self.createFormatView(self, mainView: mainView)
         
-        var label: UILabel = self.createLabel(text, view: view)
+        self.label = self.createLabel(text, view: view)
         self.addSubview(label)
     }
     
@@ -60,7 +68,24 @@ class PlayerView: UIView {
         recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.mainView)
     }
+    
+    func getLabel() -> String{
+        return self.label.text!
+    }
+    
+    func getColor() -> UIColor{
+        return self.color
+    }
+    
+    func setLabelChange(labelNew: String){
+        self.label.text = labelNew
+    }
 
+    
+    func setBackGroungColor(color: UIColor){
+        self.backgroundColor = color
+        self.color = color
+    }
 
 }
 

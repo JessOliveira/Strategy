@@ -37,9 +37,9 @@ class StrategyViewController: UIViewController {
     var willExchange = false;
     
     var willExchangeTwo = false;
-    
-    var stringLabel: String = "";
 
+    var playerToMove: PlayerView = PlayerView(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -144,19 +144,19 @@ class StrategyViewController: UIViewController {
             var sender: UIView = recognizer.view!
             if(sender.backgroundColor == UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)){
                 
-                self.setTapExchange(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0))
-                var label : UILabel = recognizer.view?.subviews.last as! UILabel
-                self.stringLabel = label.text!
-                self.setColor(recognizer.view!, color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 0.5))
+                self.addTapExchange(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0))
+                
+                self.playerToMove = recognizer.view as! PlayerView
+                
+                self.playerToMove.setBackGroungColor(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 0.5))
                 
             }else{
                 //not to confuse with the ball
                 if(sender.backgroundColor == UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)){
                     
-                    self.setTapExchange(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0))
-                    var label : UILabel = recognizer.view?.subviews.last as! UILabel
-                    self.stringLabel = label.text!
-                    self.setColor(recognizer.view!,color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 0.5))
+                    self.addTapExchange(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0))
+                    self.playerToMove = recognizer.view as! PlayerView
+                    self.playerToMove.setBackGroungColor(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 0.5))
                 }
             }
 
@@ -167,8 +167,29 @@ class StrategyViewController: UIViewController {
     }
     
     func tapExchangeTwo(recognizer: UITapGestureRecognizer){
-        print("pass")
-        
+        if(self.willExchangeTwo == true){
+            self.willExchangeTwo = false
+            self.exchangeButton.tintColor = UIColor.blackColor()
+            var playerToMoveToo: PlayerView = recognizer.view as! PlayerView
+            
+            var str: String = playerToMoveToo.label.text!
+            playerToMoveToo.setLabelChange(self.playerToMove.getLabel())
+            self.playerToMove.setLabelChange(str)
+            self.playerToMove.setBackGroungColor(playerToMoveToo.getColor())
+        }
+    }
+    
+    func addTapExchange(color: UIColor){
+        for view in self.mainView!.subviews {
+            if let tag = view.tag {
+                if tag != 101 {
+                    if(view.backgroundColor == color){
+                        var tap = UITapGestureRecognizer(target:self, action:"tapExchangeTwo:")
+                        view.addGestureRecognizer(tap)
+                    }
+                }
+            }
+        }
     }
     
     // MARK: AddPlayers Functions
@@ -189,23 +210,6 @@ class StrategyViewController: UIViewController {
         for  index in 0...10 {
             
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
-        }
-    }
-    
-    func setColor(view: UIView, color : UIColor){
-        view.backgroundColor = color
-    }
-    
-    func setTapExchange(color: UIColor){
-        for view in self.mainView!.subviews {
-            if let tag = view.tag {
-                if tag != 101 {
-                    if(view.backgroundColor == color){
-                        var tap = UITapGestureRecognizer(target:self, action:"tapExchangeTwo:")
-                        view.addGestureRecognizer(tap)
-                    }
-                }
-            }
         }
     }
     
