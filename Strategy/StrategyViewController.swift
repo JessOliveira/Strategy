@@ -29,6 +29,8 @@ class StrategyViewController: UIViewController {
     var isPanelExpanded = false;
 
     var isClear = false;
+    
+    var willRemove = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,16 +119,15 @@ class StrategyViewController: UIViewController {
     // MARK: Pan Gesture Functions
     func pan(recognizer:UIPanGestureRecognizer) {
         var translation  = recognizer.translationInView(self.mainView!)
-        
-        self.ballView.transform = CGAffineTransformTranslate(self.ballView.transform, translation.x, translation.y)
-        recognizer.setTranslation(CGPointZero, inView: self.mainView)
-        
-    }
-    
-    func panPlayer(recognizer:UIPanGestureRecognizer) {
-        var translation  = recognizer.translationInView(self.mainView!)
         recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.mainView)
+    }
+    
+    func tap(recognizer: UITapGestureRecognizer){
+        if(self.willRemove == true){
+            recognizer.view!.removeFromSuperview()
+            self.willRemove = false
+        }
     }
     
     // MARK: AddPlayers Functions
@@ -139,31 +140,49 @@ class StrategyViewController: UIViewController {
         for  index in 0...10 {
             var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX[index], self.view.frame.height*constY[index], self.view.frame.width*0.05, self.view.frame.width*0.05))
             
-            DynamicView.backgroundColor=UIColor.blueColor()
-            DynamicView.layer.cornerRadius=20
-            DynamicView.layer.borderWidth=2
+            DynamicView.backgroundColor=UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)
             
-            var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
-            DynamicView.addGestureRecognizer(panPlayer)
-            self.mainView!.addSubview(DynamicView)
+            var label = self.createLabel(index + 1)
+            DynamicView.addSubview(label)
+            
+            self.createFormatView(DynamicView)
             
         }
         
-        constX = [0.86, 0.81, 0.81, 0.71, 0.71, 0.66, 0.61, 0.61, 0.56, 0.56, 0.51]
+        constX = [0.85, 0.80, 0.80, 0.70, 0.70, 0.67, 0.60, 0.60, 0.55, 0.55, 0.50]
         
         for  index in 0...10 {
             //teste de player de novo
             var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX[index], self.view.frame.height*constY[index], self.view.frame.width*0.05, self.view.frame.width*0.05))
             
-            DynamicView.backgroundColor=UIColor.redColor()
-            DynamicView.layer.cornerRadius=20
-            DynamicView.layer.borderWidth=2
+            DynamicView.backgroundColor=UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)
             
-            var panPlayer = UIPanGestureRecognizer(target:self, action:"panPlayer:")
-            DynamicView.addGestureRecognizer(panPlayer)
-            self.mainView!.addSubview(DynamicView)
+            var label = self.createLabel(index + 1)
+            DynamicView.addSubview(label)
+            
+            self.createFormatView(DynamicView)
             
         }
+    }
+    
+    func createLabel(index: Int) -> UILabel{
+        var label = UILabel(frame: CGRectMake(0, 0, 30, 20))
+        label.center = CGPointMake(self.view.frame.width*0.025, self.view.frame.width*0.025)
+        label.textAlignment = NSTextAlignment.Center
+        label.text = String(index)
+        label.textColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0)
+        label.font = UIFont.boldSystemFontOfSize(20)
+        
+        return label
+    }
+    
+    func createFormatView(DynamicView: UIView){
+        DynamicView.layer.cornerRadius=20
+        DynamicView.layer.borderWidth=2
+        
+        var panPlayer = UIPanGestureRecognizer(target:self, action:"pan:")
+        DynamicView.addGestureRecognizer(panPlayer)
+        self.mainView!.addSubview(DynamicView)
     }
     
     // MARK: Configurations UIButtonItem
@@ -202,6 +221,18 @@ class StrategyViewController: UIViewController {
             self.isClear = false
         }else{
             self.addPlayers()
+        }
+    }
+    
+    @IBAction func removePlayer(button: UIBarButtonItem!){
+        self.willRemove = true
+        for view in self.mainView!.subviews {
+            if let tag = view.tag {
+                if tag != 101 {
+                    var tap = UITapGestureRecognizer(target:self, action:"tap:")
+                    view.addGestureRecognizer(tap)
+                }
+            }
         }
     }
     

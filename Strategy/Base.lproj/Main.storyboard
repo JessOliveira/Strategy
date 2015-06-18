@@ -287,15 +287,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2d-2s-w7I">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="-9" y="552" width="46" height="30"/>
-                                </variation>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -325,9 +316,6 @@
                             <constraint firstAttribute="height" secondItem="wMQ-8T-dQo" secondAttribute="height" multiplier="0.9" id="r3l-Z0-H9y"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="f2d-2s-w7I"/>
-                            </mask>
                             <mask key="constraints">
                                 <exclude reference="dm1-0z-o8b"/>
                                 <exclude reference="0hR-BV-nKz"/>
@@ -340,11 +328,6 @@
                                 <exclude reference="r3l-Z0-H9y"/>
                                 <exclude reference="GwJ-iR-fqB"/>
                                 <exclude reference="IRQ-7B-ujW"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=regular">
-                            <mask key="subviews">
-                                <include reference="f2d-2s-w7I"/>
                             </mask>
                         </variation>
                     </view>
@@ -411,6 +394,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="RSx-oa-CBS"/>
                         <barButtonItem image="Remove User-50.png" id="o3T-qv-U7x" userLabel="Remover">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="removePlayer:" destination="vXZ-lx-hvc" id="Oci-B8-rgF"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="qdP-AH-Xmh"/>
