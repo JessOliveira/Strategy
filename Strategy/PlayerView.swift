@@ -56,7 +56,8 @@ class PlayerView: UIView {
         
         var panPlayer = UIPanGestureRecognizer(target:self, action:"pan:")
         DynamicView.addGestureRecognizer(panPlayer)
-        mainView.addSubview(DynamicView)
+        
+        self.mainView.addSubview(DynamicView)
     }
 
     func setColor(view: UIView, color : UIColor){
@@ -85,6 +86,25 @@ class PlayerView: UIView {
     func setBackGroungColor(color: UIColor){
         self.backgroundColor = color
         self.color = color
+    }
+    
+    func removeItself(){
+        self.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+        setLabelChange("")
+        self.layer.borderWidth=0
+
+    }
+    
+    func appearItself(){
+        self.layer.borderWidth=2
+
+        self.backgroundColor = self.color
+        setLabelChange(self.text)
+    }
+    
+    func changeSuperView(view: UIView){
+        self.mainView = view
+        self.mainView.addSubview(self)
     }
 
 }

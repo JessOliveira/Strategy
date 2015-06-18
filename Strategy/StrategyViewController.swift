@@ -28,6 +28,9 @@ class StrategyViewController: UIViewController {
     @IBOutlet weak var removeButton: UIBarButtonItem!
     @IBOutlet weak var exchangeButton: UIBarButtonItem!
     
+    @IBOutlet weak var benchTeamView: UIView!
+    @IBOutlet weak var benchOpponent: UIView!
+    
     var isPanelExpanded = false;
 
     var isClear = false;
@@ -41,6 +44,8 @@ class StrategyViewController: UIViewController {
     var playerToMove: PlayerView = PlayerView(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00))
     
     var colorFromPlayerToMove: UIColor = UIColor()
+    
+    var bench : [PlayerView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +82,23 @@ class StrategyViewController: UIViewController {
         opponentView.addGestureRecognizer(tapIconOpponent)
         
         self.addBeginPlayers()
+        var constY: CGFloat = 0.09
+        for index in 12...19{
+            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index, constX: 0.01, constY: constY, view:self.view , mainView: self.benchTeamView)
+            DynamicView.removeItself()
+            self.bench.append(DynamicView)
+            constY += 0.1
+        }
+        
+        constY = 0.09
+        for index in 12...19{
+            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index, constX: 0.04, constY: constY, view:self.view , mainView: self.benchOpponent)
+            DynamicView.removeItself()
+            self.bench.append(DynamicView)
+            constY += 0.1
+        }
+
+
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -99,6 +121,10 @@ class StrategyViewController: UIViewController {
         
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         
+        for view in bench{
+            view.appearItself()
+        }
+        
         self.view.layoutIfNeeded()
     }
     
@@ -108,7 +134,11 @@ class StrategyViewController: UIViewController {
         self.teamWidth.priority = 500
         
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(0)
-
+        for view in bench{
+            
+            view.removeItself()
+        }
+        
         self.view.layoutIfNeeded()
     }
     
@@ -224,6 +254,18 @@ class StrategyViewController: UIViewController {
     
     }
     
+    func setExchange(viewSuper: UIView, button: UIBarButtonItem, tagNew: Int){
+        for view in viewSuper.subviews {
+            if let tag = view.tag {
+                if tag != tagNew {
+                    button.tintColor = UIColor.grayColor()
+                    var tap = UITapGestureRecognizer(target:self, action:"tapExchangeOne:")
+                    view.addGestureRecognizer(tap)
+                }
+            }
+        }
+    }
+
     // MARK: Configurations UIButtonItem
     @IBAction func clearTapped(){
         var theDrawView : DrawView = drawView as! DrawView
@@ -307,15 +349,10 @@ class StrategyViewController: UIViewController {
         
             if(self.willExchange == false){
                 self.willExchange = true
-                for view in self.mainView!.subviews {
-                    if let tag = view.tag {
-                        if tag != 101 {
-                            button.tintColor = UIColor.grayColor()
-                            var tap = UITapGestureRecognizer(target:self, action:"tapExchangeOne:")
-                            view.addGestureRecognizer(tap)
-                        }
-                    }
-                }
+                self.setExchange(self.mainView, button: button, tagNew: 101)
+                self.setExchange(self.benchTeamView, button: button, tagNew: 102)
+                self.setExchange(self.benchOpponent, button: button, tagNew: 103)
+                
             }else{
                 self.willExchange = false
                 button.tintColor = UIColor.blackColor()
