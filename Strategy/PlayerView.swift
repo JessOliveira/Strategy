@@ -25,11 +25,11 @@ class PlayerView: UIView {
         self.text = String(text)
         self.mainView = mainView
         
-        super.init(frame: CGRectMake(view.frame.width*constX, view.frame.height*constY, view.frame.width*0.05, view.frame.width*0.05))
+        super.init(frame: CGRectMake(view.frame.width*constX, view.frame.height*constY, view.frame.width*0.04, view.frame.width*0.04))
+        
+        self.createFormatView(self, mainView: mainView, view: view)
         
         self.setColor(self, color: color)
-        
-        self.createFormatView(self, mainView: mainView)
         
         self.label = self.createLabel(text, view: view)
         self.addSubview(label)
@@ -40,8 +40,8 @@ class PlayerView: UIView {
     }
     
     func createLabel(index: Int, view: UIView) -> UILabel{
-        var label = UILabel(frame: CGRectMake(0, 0, 30, 20))
-        label.center = CGPointMake(view.frame.width*0.025, view.frame.width*0.025)
+        var label = UILabel(frame: CGRectMake(0, 0, view.frame.width*0.04, view.frame.width*0.02))
+        label.center = CGPointMake(view.frame.width*0.02, view.frame.width*0.02)
         label.textAlignment = NSTextAlignment.Center
         label.text = String(index)
         label.textColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0)
@@ -50,8 +50,8 @@ class PlayerView: UIView {
         return label
     }
     
-    func createFormatView(DynamicView: UIView, mainView: UIView){
-        DynamicView.layer.cornerRadius = 25.0
+    func createFormatView(DynamicView: UIView, mainView: UIView, view: UIView){
+        DynamicView.layer.cornerRadius = view.frame.width*0.02
         DynamicView.layer.borderWidth = 4
         DynamicView.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0).CGColor
         
