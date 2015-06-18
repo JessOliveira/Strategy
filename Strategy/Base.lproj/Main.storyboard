@@ -390,6 +390,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="rOq-eQ-Nlt"/>
                         <barButtonItem image="Resize Horizontal Filled-50.png" id="0BI-o1-5sO" userLabel="Trocar">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="exchangePlayer:" destination="vXZ-lx-hvc" id="Rue-Yy-B7I"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="RSx-oa-CBS"/>
                         <barButtonItem image="Remove User-50.png" id="o3T-qv-U7x" userLabel="Remover">
@@ -406,6 +409,7 @@
                         <outlet property="ballImage" destination="c8z-3K-dlh" id="ttC-CT-Qcz"/>
                         <outlet property="ballView" destination="xbu-pa-9TS" id="b3R-L2-TY3"/>
                         <outlet property="drawView" destination="qHO-vT-1RD" id="mH7-EA-5rt"/>
+                        <outlet property="exchangeButton" destination="0BI-o1-5sO" id="S7o-I8-v7s"/>
                         <outlet property="mainView" destination="wMQ-8T-dQo" id="erR-i7-6bN"/>
                         <outlet property="opponentView" destination="GoW-4r-ADK" id="Y6O-d5-7x0"/>
                         <outlet property="removeButton" destination="o3T-qv-U7x" id="IDh-o9-tdr"/>

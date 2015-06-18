@@ -26,12 +26,15 @@ class StrategyViewController: UIViewController {
     @IBOutlet var drawView : AnyObject?
     
     @IBOutlet weak var removeButton: UIBarButtonItem!
+    @IBOutlet weak var exchangeButton: UIBarButtonItem!
     
     var isPanelExpanded = false;
 
     var isClear = false;
     
     var willRemove = false;
+    
+    var willExchange = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -227,7 +230,13 @@ class StrategyViewController: UIViewController {
     }
     
     @IBAction func removePlayer(button: UIBarButtonItem!){
-        if(willRemove == false){
+        //avoids two selected buttons
+        if(self.willExchange == true){
+            self.willExchange = false
+            self.exchangeButton.tintColor = UIColor.blackColor()
+        }
+        
+        if(self.willRemove == false){
             self.willRemove = true
             for view in self.mainView!.subviews {
                 if let tag = view.tag {
@@ -240,6 +249,31 @@ class StrategyViewController: UIViewController {
             }
         }else{
             self.willRemove = false
+            button.tintColor = UIColor.blackColor()
+        }
+    }
+    
+    @IBAction func exchangePlayer(button: UIBarButtonItem!){
+        //avoids two selected buttons
+        if(self.willRemove == true){
+            self.willRemove = false
+            self.removeButton.tintColor = UIColor.blackColor()
+        }
+        
+        
+        if(self.willExchange == false){
+            self.willExchange = true
+            for view in self.mainView!.subviews {
+                if let tag = view.tag {
+                    if tag != 101 {
+                        button.tintColor = UIColor.grayColor()
+                        var tap = UITapGestureRecognizer(target:self, action:"tapExchange:")
+                        view.addGestureRecognizer(tap)
+                    }
+                }
+            }
+        }else{
+            self.willExchange = false
             button.tintColor = UIColor.blackColor()
         }
     }
