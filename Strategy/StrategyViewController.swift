@@ -40,6 +40,8 @@ class StrategyViewController: UIViewController {
 
     var playerToMove: PlayerView = PlayerView(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00))
     
+    var colorFromPlayerToMove: UIColor = UIColor()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -85,20 +87,6 @@ class StrategyViewController: UIViewController {
         return self.mainView
     }
     
-    //MARK: Tap
-    func tapPanel(gesture:UITapGestureRecognizer) {
-        
-        let animationFunction = isPanelExpanded ? compressPanel : expandPanel
-        
-        //Animate the panel according to proper state transition
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            animationFunction()
-            }, completion: { (result) -> Void in
-                //Revert panel state
-                self.isPanelExpanded = !self.isPanelExpanded
-        })
-    }
-    
     // MARK: Animation Functions
     func expandPanel() {
         
@@ -125,6 +113,20 @@ class StrategyViewController: UIViewController {
     }
     
     // MARK: Pan Gesture Functions
+    func tapPanel(gesture:UITapGestureRecognizer) {
+        
+        let animationFunction = isPanelExpanded ? compressPanel : expandPanel
+        
+        //Animate the panel according to proper state transition
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            animationFunction()
+            }, completion: { (result) -> Void in
+                //Revert panel state
+                self.isPanelExpanded = !self.isPanelExpanded
+        })
+    }
+    
+    
     func pan(recognizer:UIPanGestureRecognizer) {
         var translation  = recognizer.translationInView(self.mainView!)
         recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
@@ -147,7 +149,7 @@ class StrategyViewController: UIViewController {
                 self.addTapExchange(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0))
                 
                 self.playerToMove = recognizer.view as! PlayerView
-                
+                self.colorFromPlayerToMove = self.playerToMove.getColor()
                 self.playerToMove.setBackGroungColor(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 0.5))
                 
             }else{
@@ -156,6 +158,7 @@ class StrategyViewController: UIViewController {
                     
                     self.addTapExchange(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0))
                     self.playerToMove = recognizer.view as! PlayerView
+                    self.colorFromPlayerToMove = self.playerToMove.getColor()
                     self.playerToMove.setBackGroungColor(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 0.5))
                 }
             }
@@ -202,7 +205,6 @@ class StrategyViewController: UIViewController {
         for  index in 0...10 {
             
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
-            
         }
         
         constX = [0.85, 0.80, 0.80, 0.70, 0.70, 0.67, 0.60, 0.60, 0.55, 0.55, 0.50]
@@ -255,6 +257,11 @@ class StrategyViewController: UIViewController {
     @IBAction func removePlayer(button: UIBarButtonItem!){
         //avoids two selected buttons
         if(self.willExchange == true || self.willExchangeTwo == true){
+            
+            if(self.willExchangeTwo == true){
+                self.playerToMove.setBackGroungColor(self.colorFromPlayerToMove)
+            }
+            
             self.willExchange = false
             self.willExchangeTwo = false
             self.exchangeButton.tintColor = UIColor.blackColor()
@@ -279,27 +286,35 @@ class StrategyViewController: UIViewController {
     
     @IBAction func exchangePlayer(button: UIBarButtonItem!){
         //avoids two selected buttons
-        if(self.willRemove == true){
+        if(self.willRemove == true || self.willExchangeTwo == true){
+            
+            if(self.willExchangeTwo == true){
+                self.playerToMove.setBackGroungColor(self.colorFromPlayerToMove)
+                self.exchangeButton.tintColor = UIColor.blackColor()
+                self.willExchange = true
+            }
+            
             self.willRemove = false
+            self.willExchangeTwo = false
             self.removeButton.tintColor = UIColor.blackColor()
         }
         
-        
-        if(self.willExchange == false){
-            self.willExchange = true
-            for view in self.mainView!.subviews {
-                if let tag = view.tag {
-                    if tag != 101 {
-                        button.tintColor = UIColor.grayColor()
-                        var tap = UITapGestureRecognizer(target:self, action:"tapExchangeOne:")
-                        view.addGestureRecognizer(tap)
+            if(self.willExchange == false){
+                self.willExchange = true
+                for view in self.mainView!.subviews {
+                    if let tag = view.tag {
+                        if tag != 101 {
+                            button.tintColor = UIColor.grayColor()
+                            var tap = UITapGestureRecognizer(target:self, action:"tapExchangeOne:")
+                            view.addGestureRecognizer(tap)
+                        }
                     }
                 }
+            }else{
+                self.willExchange = false
+                button.tintColor = UIColor.blackColor()
             }
-        }else{
-            self.willExchange = false
-            button.tintColor = UIColor.blackColor()
-        }
     }
+    
     
 }
