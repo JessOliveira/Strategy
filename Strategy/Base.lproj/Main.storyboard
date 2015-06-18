@@ -352,35 +352,35 @@
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="IdP-Ub-1h5"/>
-                        <barButtonItem tag="1" image="Rounded Rectangle-50-2.png" id="ono-5y-PKa" userLabel="Vermelho" colorLabel="IBBuiltInLabel-Purple">
+                        <barButtonItem tag="1" image="pen" id="ono-5y-PKa" userLabel="Vermelho" colorLabel="IBBuiltInLabel-Purple">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="vCH-09-Rc7"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="o82-g1-j8g"/>
-                        <barButtonItem tag="2" image="Rounded Rectangle-50-2.png" id="aWt-Tu-LAd" userLabel="Azul">
+                        <barButtonItem tag="2" image="pen" id="aWt-Tu-LAd" userLabel="Azul">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="v9f-Yv-yXU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Yf0-Vn-VIZ"/>
-                        <barButtonItem tag="3" image="Rounded Rectangle-50-2.png" id="GI4-R8-HjC" userLabel="Amarelo">
+                        <barButtonItem tag="3" image="pen" id="GI4-R8-HjC" userLabel="Amarelo">
                             <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="5hj-RQ-ib2"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Acj-3F-1zu"/>
-                        <barButtonItem tag="4" title="Item" image="Rounded Rectangle-50-2.png" id="0oe-ia-6eo" userLabel="Preto">
+                        <barButtonItem tag="4" image="pen" id="0oe-ia-6eo" userLabel="Preto">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="k1d-pD-bbm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="fhQ-bb-951"/>
-                        <barButtonItem tag="5" image="Rounded Rectangle-50-2.png" id="EvI-xr-61b" userLabel="Branco">
+                        <barButtonItem tag="5" image="pen" id="EvI-xr-61b" userLabel="Branco">
                             <connections>
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="FBh-1K-vBq"/>
                             </connections>
@@ -433,12 +433,12 @@
         <image name="Eraser-50.png" width="50" height="50"/>
         <image name="Remove User-50.png" width="50" height="50"/>
         <image name="Resize Horizontal Filled-50.png" width="50" height="50"/>
-        <image name="Rounded Rectangle-50-2.png" width="50" height="50"/>
         <image name="Save-50" width="50" height="50"/>
         <image name="Stadium-50.png" width="50" height="50"/>
         <image name="arrow" width="50" height="50"/>
         <image name="arrowOther" width="50" height="50"/>
         <image name="ball" width="640" height="480"/>
+        <image name="pen" width="40" height="40"/>
         <image name="soccer2" width="1920" height="1200"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

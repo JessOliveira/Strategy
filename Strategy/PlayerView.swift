@@ -51,8 +51,9 @@ class PlayerView: UIView {
     }
     
     func createFormatView(DynamicView: UIView, mainView: UIView){
-        DynamicView.layer.cornerRadius=20
-        DynamicView.layer.borderWidth=2
+        DynamicView.layer.cornerRadius = 25.0
+        DynamicView.layer.borderWidth = 4
+        DynamicView.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0).CGColor
         
         var panPlayer = UIPanGestureRecognizer(target:self, action:"pan:")
         DynamicView.addGestureRecognizer(panPlayer)
@@ -80,6 +81,7 @@ class PlayerView: UIView {
     
     func setLabelChange(labelNew: String){
         self.label.text = labelNew
+        self.text = labelNew
     }
 
     
@@ -90,7 +92,9 @@ class PlayerView: UIView {
     
     func removeItself(){
         self.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+        var textStore: String = self.text
         setLabelChange("")
+        self.text = textStore
         self.layer.borderWidth=0
 
     }

@@ -83,19 +83,19 @@ class StrategyViewController: UIViewController {
         
         self.addBeginPlayers()
         var constY: CGFloat = 0.09
-        for index in 12...19{
+        for index in 12...21{
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index, constX: 0.01, constY: constY, view:self.view , mainView: self.benchTeamView)
             DynamicView.removeItself()
             self.bench.append(DynamicView)
-            constY += 0.1
+            constY += 0.08
         }
         
         constY = 0.09
-        for index in 12...19{
+        for index in 12...21{
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index, constX: 0.04, constY: constY, view:self.view , mainView: self.benchOpponent)
             DynamicView.removeItself()
             self.bench.append(DynamicView)
-            constY += 0.1
+            constY += 0.08
         }
 
 
@@ -176,7 +176,11 @@ class StrategyViewController: UIViewController {
             var sender: UIView = recognizer.view!
             if(sender.backgroundColor == UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)){
                 
-                self.addTapExchange(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0))
+                self.addTapExchange(self.mainView, color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), tagNew: 101)
+                
+                self.addTapExchange(self.benchOpponent, color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), tagNew: 102)
+                
+                self.addTapExchange(self.benchTeamView, color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), tagNew: 103)
                 
                 self.playerToMove = recognizer.view as! PlayerView
                 self.colorFromPlayerToMove = self.playerToMove.getColor()
@@ -186,7 +190,10 @@ class StrategyViewController: UIViewController {
                 //not to confuse with the ball
                 if(sender.backgroundColor == UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)){
                     
-                    self.addTapExchange(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0))
+                    self.addTapExchange(self.mainView, color:UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), tagNew: 101)
+                    self.addTapExchange(self.benchTeamView, color:UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), tagNew: 102)
+                    self.addTapExchange(self.benchOpponent, color:UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), tagNew: 103)
+                    
                     self.playerToMove = recognizer.view as! PlayerView
                     self.colorFromPlayerToMove = self.playerToMove.getColor()
                     self.playerToMove.setBackGroungColor(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 0.5))
@@ -211,19 +218,7 @@ class StrategyViewController: UIViewController {
             self.playerToMove.setBackGroungColor(playerToMoveToo.getColor())
         }
     }
-    
-    func addTapExchange(color: UIColor){
-        for view in self.mainView!.subviews {
-            if let tag = view.tag {
-                if tag != 101 {
-                    if(view.backgroundColor == color){
-                        var tap = UITapGestureRecognizer(target:self, action:"tapExchangeTwo:")
-                        view.addGestureRecognizer(tap)
-                    }
-                }
-            }
-        }
-    }
+
     
     // MARK: AddPlayers Functions
     func addBeginPlayers(){
@@ -261,6 +256,20 @@ class StrategyViewController: UIViewController {
                     button.tintColor = UIColor.grayColor()
                     var tap = UITapGestureRecognizer(target:self, action:"tapExchangeOne:")
                     view.addGestureRecognizer(tap)
+                }
+            }
+        }
+    }
+    
+    
+    func addTapExchange(viewSuper: UIView, color: UIColor, tagNew: Int){
+        for view in viewSuper.subviews {
+            if let tag = view.tag {
+                if tag != tagNew {
+                    if(view.backgroundColor == color){
+                        var tap = UITapGestureRecognizer(target:self, action:"tapExchangeTwo:")
+                        view.addGestureRecognizer(tap)
+                    }
                 }
             }
         }
