@@ -35,6 +35,10 @@ class StrategyViewController: UIViewController {
     var willRemove = false;
     
     var willExchange = false;
+    
+    var willExchangeTwo = false;
+    
+    var stringLabel: String = "";
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,6 +139,38 @@ class StrategyViewController: UIViewController {
         }
     }
     
+    func tapExchangeOne(recognizer: UITapGestureRecognizer){
+        if(self.willExchange == true){
+            var sender: UIView = recognizer.view!
+            if(sender.backgroundColor == UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)){
+                
+                self.setTapExchange(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0))
+                var label : UILabel = recognizer.view?.subviews.last as! UILabel
+                self.stringLabel = label.text!
+                self.setColor(recognizer.view!, color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 0.5))
+                
+            }else{
+                //not to confuse with the ball
+                if(sender.backgroundColor == UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)){
+                    
+                    self.setTapExchange(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0))
+                    var label : UILabel = recognizer.view?.subviews.last as! UILabel
+                    self.stringLabel = label.text!
+                    self.setColor(recognizer.view!,color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 0.5))
+                }
+            }
+
+            //disable touch first in the exchange
+            self.willExchange = false
+            self.willExchangeTwo = true
+        }
+    }
+    
+    func tapExchangeTwo(recognizer: UITapGestureRecognizer){
+        print("pass")
+        
+    }
+    
     // MARK: AddPlayers Functions
     func addPlayers(){
         self.isClear = true;
@@ -143,51 +179,34 @@ class StrategyViewController: UIViewController {
         var constY : [CGFloat] = [0.43, 0.23, 0.63, 0.13, 0.73, 0.43, 0.23, 0.63, 0.13, 0.73, 0.43]
         
         for  index in 0...10 {
-            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX[index], self.view.frame.height*constY[index], self.view.frame.width*0.05, self.view.frame.width*0.05))
             
-            DynamicView.backgroundColor=UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)
-            
-            var label = self.createLabel(index + 1)
-            DynamicView.addSubview(label)
-            
-            self.createFormatView(DynamicView)
+            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
             
         }
         
         constX = [0.85, 0.80, 0.80, 0.70, 0.70, 0.67, 0.60, 0.60, 0.55, 0.55, 0.50]
         
         for  index in 0...10 {
-            //teste de player de novo
-            var DynamicView=UIView(frame: CGRectMake(self.view.frame.width*constX[index], self.view.frame.height*constY[index], self.view.frame.width*0.05, self.view.frame.width*0.05))
             
-            DynamicView.backgroundColor=UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)
-            
-            var label = self.createLabel(index + 1)
-            DynamicView.addSubview(label)
-            
-            self.createFormatView(DynamicView)
-            
+            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
         }
     }
     
-    func createLabel(index: Int) -> UILabel{
-        var label = UILabel(frame: CGRectMake(0, 0, 30, 20))
-        label.center = CGPointMake(self.view.frame.width*0.025, self.view.frame.width*0.025)
-        label.textAlignment = NSTextAlignment.Center
-        label.text = String(index)
-        label.textColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0)
-        label.font = UIFont.boldSystemFontOfSize(20)
-        
-        return label
+    func setColor(view: UIView, color : UIColor){
+        view.backgroundColor = color
     }
     
-    func createFormatView(DynamicView: UIView){
-        DynamicView.layer.cornerRadius=20
-        DynamicView.layer.borderWidth=2
-        
-        var panPlayer = UIPanGestureRecognizer(target:self, action:"pan:")
-        DynamicView.addGestureRecognizer(panPlayer)
-        self.mainView!.addSubview(DynamicView)
+    func setTapExchange(color: UIColor){
+        for view in self.mainView!.subviews {
+            if let tag = view.tag {
+                if tag != 101 {
+                    if(view.backgroundColor == color){
+                        var tap = UITapGestureRecognizer(target:self, action:"tapExchangeTwo:")
+                        view.addGestureRecognizer(tap)
+                    }
+                }
+            }
+        }
     }
     
     // MARK: Configurations UIButtonItem
@@ -231,8 +250,9 @@ class StrategyViewController: UIViewController {
     
     @IBAction func removePlayer(button: UIBarButtonItem!){
         //avoids two selected buttons
-        if(self.willExchange == true){
+        if(self.willExchange == true || self.willExchangeTwo == true){
             self.willExchange = false
+            self.willExchangeTwo = false
             self.exchangeButton.tintColor = UIColor.blackColor()
         }
         
@@ -267,7 +287,7 @@ class StrategyViewController: UIViewController {
                 if let tag = view.tag {
                     if tag != 101 {
                         button.tintColor = UIColor.grayColor()
-                        var tap = UITapGestureRecognizer(target:self, action:"tapExchange:")
+                        var tap = UITapGestureRecognizer(target:self, action:"tapExchangeOne:")
                         view.addGestureRecognizer(tap)
                     }
                 }
