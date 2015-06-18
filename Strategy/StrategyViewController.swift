@@ -76,7 +76,7 @@ class StrategyViewController: UIViewController {
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
         opponentView.addGestureRecognizer(tapIconOpponent)
         
-        self.addPlayers()
+        self.addBeginPlayers()
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -87,7 +87,7 @@ class StrategyViewController: UIViewController {
         return self.mainView
     }
     
-    // MARK: Animation Functions
+    // MARK: Animation Functions for bench
     func expandPanel() {
         
         //Change button to expand state
@@ -196,9 +196,7 @@ class StrategyViewController: UIViewController {
     }
     
     // MARK: AddPlayers Functions
-    func addPlayers(){
-        self.isClear = true;
-        
+    func addBeginPlayers(){
         var constX : [CGFloat] = [0.06, 0.11, 0.11, 0.21, 0.21, 0.26, 0.31, 0.31, 0.36, 0.36, 0.41]
         var constY : [CGFloat] = [0.43, 0.23, 0.63, 0.13, 0.73, 0.43, 0.23, 0.63, 0.13, 0.73, 0.43]
         
@@ -213,6 +211,17 @@ class StrategyViewController: UIViewController {
             
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
         }
+    }
+    
+    func removeAllPlayers(){
+        for view in self.mainView!.subviews {
+            if let tag = view.tag {
+                if tag != 101 {
+                    view.removeFromSuperview()
+                }
+            }
+        }
+    
     }
     
     // MARK: Configurations UIButtonItem
@@ -241,16 +250,13 @@ class StrategyViewController: UIViewController {
     
     @IBAction func changeMode(button: UIBarButtonItem!){
         if(self.isClear == true){
-            for view in self.mainView!.subviews {
-                if let tag = view.tag {
-                    if tag != 101 {
-                        view.removeFromSuperview()
-                    }
-                }
-            }
+            //general - go to state 1
+            self.addBeginPlayers()
             self.isClear = false
         }else{
-            self.addPlayers()
+            //empy - go to state 2
+            self.removeAllPlayers()
+            self.isClear = true
         }
     }
     

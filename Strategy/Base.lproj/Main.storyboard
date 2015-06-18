@@ -332,6 +332,7 @@
                         </variation>
                     </view>
                     <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="aAo-PW-QFq"/>
                         <barButtonItem image="Stadium-50.png" id="iKl-6N-wHh" userLabel="Campo" colorLabel="IBBuiltInLabel-Red">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -401,6 +402,7 @@
                                 <action selector="removePlayer:" destination="vXZ-lx-hvc" id="Oci-B8-rgF"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="UOO-kv-Cml"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="qdP-AH-Xmh"/>
                     <connections>
