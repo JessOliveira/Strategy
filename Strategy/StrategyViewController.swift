@@ -25,6 +25,7 @@ class StrategyViewController: UIViewController {
     
     @IBOutlet var drawView : AnyObject?
     
+    @IBOutlet weak var removeButton: UIBarButtonItem!
     
     var isPanelExpanded = false;
 
@@ -123,10 +124,11 @@ class StrategyViewController: UIViewController {
         recognizer.setTranslation(CGPointZero, inView: self.mainView)
     }
     
-    func tap(recognizer: UITapGestureRecognizer){
+    func tapRemove(recognizer: UITapGestureRecognizer){
         if(self.willRemove == true){
             recognizer.view!.removeFromSuperview()
             self.willRemove = false
+            self.removeButton.tintColor = UIColor.blackColor()
         }
     }
     
@@ -225,14 +227,20 @@ class StrategyViewController: UIViewController {
     }
     
     @IBAction func removePlayer(button: UIBarButtonItem!){
-        self.willRemove = true
-        for view in self.mainView!.subviews {
-            if let tag = view.tag {
-                if tag != 101 {
-                    var tap = UITapGestureRecognizer(target:self, action:"tap:")
-                    view.addGestureRecognizer(tap)
+        if(willRemove == false){
+            self.willRemove = true
+            for view in self.mainView!.subviews {
+                if let tag = view.tag {
+                    if tag != 101 {
+                        button.tintColor = UIColor.grayColor()
+                        var tap = UITapGestureRecognizer(target:self, action:"tapRemove:")
+                        view.addGestureRecognizer(tap)
+                    }
                 }
             }
+        }else{
+            self.willRemove = false
+            button.tintColor = UIColor.blackColor()
         }
     }
     

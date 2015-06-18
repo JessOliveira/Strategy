@@ -408,6 +408,7 @@
                         <outlet property="drawView" destination="qHO-vT-1RD" id="mH7-EA-5rt"/>
                         <outlet property="mainView" destination="wMQ-8T-dQo" id="erR-i7-6bN"/>
                         <outlet property="opponentView" destination="GoW-4r-ADK" id="Y6O-d5-7x0"/>
+                        <outlet property="removeButton" destination="o3T-qv-U7x" id="IDh-o9-tdr"/>
                         <outlet property="scrollView" destination="ATt-3x-CxC" id="DHl-Qa-fWE"/>
                         <outlet property="teamView" destination="FoC-9e-z3d" id="1aw-LN-hjY"/>
                         <outlet property="teamWidth" destination="Tpt-BY-zOZ" id="lcT-fM-Fwj"/>
