@@ -178,7 +178,7 @@ class StrategyViewController: UIViewController {
                 
                 //change alpha - color selected
                 self.playerToMove = recognizer.view as! PlayerView
-                self.colorFromPlayerToMove = self.playerToMove.getColor()
+                self.colorFromPlayerToMove = self.blueColor
                 self.playerToMove.setBackGroungColor(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 0.5))
                 
             }else{
@@ -187,12 +187,12 @@ class StrategyViewController: UIViewController {
                     
                     //add gesture change - second pass in the same colors
                     self.addTapChange(self.mainView, color: self.redColor, tagNew: 101)
-                    self.addTapChange(self.benchTeamView, color:self.redColor, tagNew: 102)
+                    self.addTapChange(self.view, color:self.redColor, tagNew: 102)
                     self.addTapChange(self.benchOpponent, color:self.redColor, tagNew: 103)
                     
                     //change alpha - color selected
                     self.playerToMove = recognizer.view as! PlayerView
-                    self.colorFromPlayerToMove = self.playerToMove.getColor()
+                    self.colorFromPlayerToMove = self.redColor
                     self.playerToMove.setBackGroungColor(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 0.5))
                 }
             }
@@ -214,7 +214,7 @@ class StrategyViewController: UIViewController {
             var str: String = playerToMoveToo.label.text!
             playerToMoveToo.setLabelChange(self.playerToMove.getLabel())
             self.playerToMove.setLabelChange(str)
-            self.playerToMove.setBackGroungColor(playerToMoveToo.getColor())
+            self.playerToMove.setBackGroungColor(self.colorFromPlayerToMove)
         }
     }
 
@@ -236,19 +236,19 @@ class StrategyViewController: UIViewController {
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
         }
         
-        var constantY: CGFloat = 0.09
+        var constantY: CGFloat = 0.12
         //create player blue in bench
         for index in 12...21{
-            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index, constX: 0.01, constY: constantY, view:self.view , mainView: self.benchTeamView)
+            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index, constX: 0.01, constY: constantY, view:self.view , mainView: self.view)
             DynamicView.removeItself()
             self.bench.append(DynamicView)
             constantY += 0.08
         }
         
-        constantY = 0.09
+        constantY = 0.12
         //create player red in bench
         for index in 12...21{
-            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index, constX: 0.04, constY: constantY, view:self.view , mainView: self.benchOpponent)
+            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index, constX: 0.94, constY: constantY, view:self.view , mainView: self.view)
             DynamicView.removeItself()
             self.bench.append(DynamicView)
             constantY += 0.08

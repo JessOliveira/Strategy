@@ -49,5 +49,4 @@ class DrawView: UIView {
         }
     }
     
-    
 }
