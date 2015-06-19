@@ -405,8 +405,8 @@ class StrategyViewController: UIViewController {
             if(self.willChange == false){
                 self.willChange = true
                 self.setChange(self.mainView, button: button, tagNew: 101)
-                self.setChange(self.benchTeamView, button: button, tagNew: 102)
-                self.setChange(self.benchOpponent, button: button, tagNew: 103)
+                self.setChange(self.view, button: button, tagNew: 102)
+                self.setChange(self.view, button: button, tagNew: 103)
                 
             }else{
                 self.willChange = false
