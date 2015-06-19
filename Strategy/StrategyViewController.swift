@@ -302,6 +302,16 @@ class StrategyViewController: UIViewController {
         theDrawView.setNeedsDisplay()
     }
     
+    @IBAction func undoTapped(){
+        var theDrawView : DrawView = drawView as! DrawView
+        //var theLine : Line = Line as! Line
+        
+        if (theDrawView.lines.count > 0) {
+            theDrawView.lines.removeLast()
+        }
+        theDrawView.setNeedsDisplay()
+    }
+    
     //change color
     @IBAction func colorTapped(button: UIBarButtonItem!){
         var theDrawView : DrawView = drawView as! DrawView
