@@ -26,7 +26,7 @@ class StrategyViewController: UIViewController {
     @IBOutlet var drawView : AnyObject?
     
     @IBOutlet weak var removeButton: UIBarButtonItem!
-    @IBOutlet weak var exchangeButton: UIBarButtonItem!
+    @IBOutlet weak var ChangeButton: UIBarButtonItem!
     
     @IBOutlet weak var benchTeamView: UIView!
     @IBOutlet weak var benchOpponent: UIView!
@@ -37,9 +37,9 @@ class StrategyViewController: UIViewController {
     
     var willRemove = false;
     
-    var willExchange = false;
+    var willChange = false;
     
-    var willExchangeTwo = false;
+    var willChangeTwo = false;
 
     var playerToMove: PlayerView = PlayerView(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00))
     
@@ -47,14 +47,20 @@ class StrategyViewController: UIViewController {
     
     var bench : [PlayerView] = []
     
+    var blueColor: UIColor = UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)
+    
+    var redColor: UIColor = UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        //add panGesture in ball
         var pan = UIPanGestureRecognizer(target:self, action:"pan:")
         self.ballView.addGestureRecognizer(pan)
         
+        //scrollView
         self.scrollView.minimumZoomScale = 1.0
         self.scrollView.maximumZoomScale = 2.0
         self.scrollView.zoomScale = 0.2
@@ -70,9 +76,6 @@ class StrategyViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.arrowTeamImageView.tintColor = UIColor.redColor()
-        self.arrowOpponentImageView.tintColor = UIColor.redColor()
-        
         //create tap in icon image
         let tapIcon = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
             teamView.addGestureRecognizer(tapIcon)
@@ -81,24 +84,8 @@ class StrategyViewController: UIViewController {
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
         opponentView.addGestureRecognizer(tapIconOpponent)
         
+        //add players
         self.addBeginPlayers()
-        var constY: CGFloat = 0.09
-        for index in 12...21{
-            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index, constX: 0.01, constY: constY, view:self.view , mainView: self.benchTeamView)
-            DynamicView.removeItself()
-            self.bench.append(DynamicView)
-            constY += 0.08
-        }
-        
-        constY = 0.09
-        for index in 12...21{
-            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index, constX: 0.04, constY: constY, view:self.view , mainView: self.benchOpponent)
-            DynamicView.removeItself()
-            self.bench.append(DynamicView)
-            constY += 0.08
-        }
-
-
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -115,12 +102,14 @@ class StrategyViewController: UIViewController {
         //Change button to expand state
         self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         
+        //bench extand
         self.teamWidth.constant = self.view.frame.width*0.1
-
         self.teamWidth.priority = 900
         
+        //arrow modifies
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         
+        //appear the players in bench
         for view in bench{
             view.appearItself()
         }
@@ -129,13 +118,14 @@ class StrategyViewController: UIViewController {
     }
     
     func compressPanel() {
-        //Chnage button to compress state
+        //Change button to compress state
         self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(0)
         self.teamWidth.priority = 500
         
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(0)
+        
+        //disappear players in bench
         for view in bench{
-            
             view.removeItself()
         }
         
@@ -143,6 +133,8 @@ class StrategyViewController: UIViewController {
     }
     
     // MARK: Pan Gesture Functions
+    
+    //tap panel - expand or compress
     func tapPanel(gesture:UITapGestureRecognizer) {
         
         let animationFunction = isPanelExpanded ? compressPanel : expandPanel
@@ -156,13 +148,14 @@ class StrategyViewController: UIViewController {
         })
     }
     
-    
+    //pan gesture from ball
     func pan(recognizer:UIPanGestureRecognizer) {
         var translation  = recognizer.translationInView(self.mainView!)
         recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.mainView)
     }
     
+    //remove one player when the user to select button remove
     func tapRemove(recognizer: UITapGestureRecognizer){
         if(self.willRemove == true){
             recognizer.view!.removeFromSuperview()
@@ -171,47 +164,52 @@ class StrategyViewController: UIViewController {
         }
     }
     
-    func tapExchangeOne(recognizer: UITapGestureRecognizer){
-        if(self.willExchange == true){
+    //chage player when the user to select button change - this is first selected
+    func tapChangeOne(recognizer: UITapGestureRecognizer){
+        if(self.willChange == true){
             var sender: UIView = recognizer.view!
-            if(sender.backgroundColor == UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)){
+            if(sender.backgroundColor == self.blueColor){
                 
-                self.addTapExchange(self.mainView, color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), tagNew: 101)
+                //add gesture change - second pass in the same colors
+                self.addTapChange(self.mainView, color: self.blueColor, tagNew: 101)
+                self.addTapChange(self.benchOpponent, color: self.blueColor, tagNew: 102)
+                self.addTapChange(self.benchTeamView, color: self.blueColor, tagNew: 103)
                 
-                self.addTapExchange(self.benchOpponent, color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), tagNew: 102)
-                
-                self.addTapExchange(self.benchTeamView, color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), tagNew: 103)
-                
+                //change alpha - color selected
                 self.playerToMove = recognizer.view as! PlayerView
                 self.colorFromPlayerToMove = self.playerToMove.getColor()
                 self.playerToMove.setBackGroungColor(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 0.5))
                 
             }else{
                 //not to confuse with the ball
-                if(sender.backgroundColor == UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)){
+                if(sender.backgroundColor == self.redColor){
                     
-                    self.addTapExchange(self.mainView, color:UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), tagNew: 101)
-                    self.addTapExchange(self.benchTeamView, color:UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), tagNew: 102)
-                    self.addTapExchange(self.benchOpponent, color:UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), tagNew: 103)
+                    //add gesture change - second pass in the same colors
+                    self.addTapChange(self.mainView, color: self.redColor, tagNew: 101)
+                    self.addTapChange(self.benchTeamView, color:self.redColor, tagNew: 102)
+                    self.addTapChange(self.benchOpponent, color:self.redColor, tagNew: 103)
                     
+                    //change alpha - color selected
                     self.playerToMove = recognizer.view as! PlayerView
                     self.colorFromPlayerToMove = self.playerToMove.getColor()
                     self.playerToMove.setBackGroungColor(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 0.5))
                 }
             }
 
-            //disable touch first in the exchange
-            self.willExchange = false
-            self.willExchangeTwo = true
+            //disable touch first in the Change
+            self.willChange = false
+            self.willChangeTwo = true
         }
     }
     
-    func tapExchangeTwo(recognizer: UITapGestureRecognizer){
-        if(self.willExchangeTwo == true){
-            self.willExchangeTwo = false
-            self.exchangeButton.tintColor = UIColor.blackColor()
-            var playerToMoveToo: PlayerView = recognizer.view as! PlayerView
+    func tapChangeTwo(recognizer: UITapGestureRecognizer){
+        if(self.willChangeTwo == true){
+            self.willChangeTwo = false
+            //deselect button
+            self.ChangeButton.tintColor = UIColor.blackColor()
             
+            //change label
+            var playerToMoveToo: PlayerView = recognizer.view as! PlayerView
             var str: String = playerToMoveToo.label.text!
             playerToMoveToo.setLabelChange(self.playerToMove.getLabel())
             self.playerToMove.setLabelChange(str)
@@ -225,19 +223,39 @@ class StrategyViewController: UIViewController {
         var constX : [CGFloat] = [0.06, 0.11, 0.11, 0.21, 0.21, 0.26, 0.31, 0.31, 0.36, 0.36, 0.41]
         var constY : [CGFloat] = [0.43, 0.23, 0.63, 0.13, 0.73, 0.43, 0.23, 0.63, 0.13, 0.73, 0.43]
         
+        //create player blue in soccer
         for  index in 0...10 {
-            
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
         }
         
         constX = [0.85, 0.80, 0.80, 0.70, 0.70, 0.67, 0.60, 0.60, 0.55, 0.55, 0.50]
         
+        //create player red in soccer
         for  index in 0...10 {
-            
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
         }
+        
+        var constantY: CGFloat = 0.09
+        //create player blue in bench
+        for index in 12...21{
+            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index, constX: 0.01, constY: constantY, view:self.view , mainView: self.benchTeamView)
+            DynamicView.removeItself()
+            self.bench.append(DynamicView)
+            constantY += 0.08
+        }
+        
+        constantY = 0.09
+        //create player red in bench
+        for index in 12...21{
+            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index, constX: 0.04, constY: constantY, view:self.view , mainView: self.benchOpponent)
+            DynamicView.removeItself()
+            self.bench.append(DynamicView)
+            constantY += 0.08
+        }
+
     }
     
+    //remove players in soccer
     func removeAllPlayers(){
         for view in self.mainView!.subviews {
             if let tag = view.tag {
@@ -249,25 +267,26 @@ class StrategyViewController: UIViewController {
     
     }
     
-    func setExchange(viewSuper: UIView, button: UIBarButtonItem, tagNew: Int){
+    //add One tap gesture for change player
+    func setChange(viewSuper: UIView, button: UIBarButtonItem, tagNew: Int){
         for view in viewSuper.subviews {
             if let tag = view.tag {
                 if tag != tagNew {
                     button.tintColor = UIColor.grayColor()
-                    var tap = UITapGestureRecognizer(target:self, action:"tapExchangeOne:")
+                    var tap = UITapGestureRecognizer(target:self, action:"tapChangeOne:")
                     view.addGestureRecognizer(tap)
                 }
             }
         }
     }
     
-    
-    func addTapExchange(viewSuper: UIView, color: UIColor, tagNew: Int){
+    //add Two tap gesture for change player
+    func addTapChange(viewSuper: UIView, color: UIColor, tagNew: Int){
         for view in viewSuper.subviews {
             if let tag = view.tag {
                 if tag != tagNew {
                     if(view.backgroundColor == color){
-                        var tap = UITapGestureRecognizer(target:self, action:"tapExchangeTwo:")
+                        var tap = UITapGestureRecognizer(target:self, action:"tapChangeTwo:")
                         view.addGestureRecognizer(tap)
                     }
                 }
@@ -276,12 +295,14 @@ class StrategyViewController: UIViewController {
     }
 
     // MARK: Configurations UIButtonItem
+    //clear all drawings
     @IBAction func clearTapped(){
         var theDrawView : DrawView = drawView as! DrawView
         theDrawView.lines = []
         theDrawView.setNeedsDisplay()
     }
     
+    //change color
     @IBAction func colorTapped(button: UIBarButtonItem!){
         var theDrawView : DrawView = drawView as! DrawView
         var color : UIColor!
@@ -299,6 +320,7 @@ class StrategyViewController: UIViewController {
         theDrawView.drawColor = color
     }
     
+    //change mode - without players or begin players
     @IBAction func changeMode(button: UIBarButtonItem!){
         if(self.isClear == true){
             //general - go to state 1
@@ -311,17 +333,18 @@ class StrategyViewController: UIViewController {
         }
     }
     
+    //remove one players button
     @IBAction func removePlayer(button: UIBarButtonItem!){
         //avoids two selected buttons
-        if(self.willExchange == true || self.willExchangeTwo == true){
+        if(self.willChange == true || self.willChangeTwo == true){
             
-            if(self.willExchangeTwo == true){
+            if(self.willChangeTwo == true){
                 self.playerToMove.setBackGroungColor(self.colorFromPlayerToMove)
             }
             
-            self.willExchange = false
-            self.willExchangeTwo = false
-            self.exchangeButton.tintColor = UIColor.blackColor()
+            self.willChange = false
+            self.willChangeTwo = false
+            self.ChangeButton.tintColor = UIColor.blackColor()
         }
         
         if(self.willRemove == false){
@@ -341,29 +364,30 @@ class StrategyViewController: UIViewController {
         }
     }
     
-    @IBAction func exchangePlayer(button: UIBarButtonItem!){
+    //change two players button
+    @IBAction func ChangePlayer(button: UIBarButtonItem!){
         //avoids two selected buttons
-        if(self.willRemove == true || self.willExchangeTwo == true){
+        if(self.willRemove == true || self.willChangeTwo == true){
             
-            if(self.willExchangeTwo == true){
+            if(self.willChangeTwo == true){
                 self.playerToMove.setBackGroungColor(self.colorFromPlayerToMove)
-                self.exchangeButton.tintColor = UIColor.blackColor()
-                self.willExchange = true
+                self.ChangeButton.tintColor = UIColor.blackColor()
+                self.willChange = true
             }
             
             self.willRemove = false
-            self.willExchangeTwo = false
+            self.willChangeTwo = false
             self.removeButton.tintColor = UIColor.blackColor()
         }
         
-            if(self.willExchange == false){
-                self.willExchange = true
-                self.setExchange(self.mainView, button: button, tagNew: 101)
-                self.setExchange(self.benchTeamView, button: button, tagNew: 102)
-                self.setExchange(self.benchOpponent, button: button, tagNew: 103)
+            if(self.willChange == false){
+                self.willChange = true
+                self.setChange(self.mainView, button: button, tagNew: 101)
+                self.setChange(self.benchTeamView, button: button, tagNew: 102)
+                self.setChange(self.benchOpponent, button: button, tagNew: 103)
                 
             }else{
-                self.willExchange = false
+                self.willChange = false
                 button.tintColor = UIColor.blackColor()
             }
     }

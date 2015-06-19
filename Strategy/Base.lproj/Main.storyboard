@@ -145,6 +145,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowOther" translatesAutoresizingMaskIntoConstraints="NO" id="u5h-Fy-4Ax">
                                                             <rect key="frame" x="1" y="281" width="18" height="18"/>
+                                                            <color key="tintColor" red="0.93767918579999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="u5h-Fy-4Ax" secondAttribute="height" multiplier="1:1" id="FBx-kA-N4v"/>
                                                                 <constraint firstAttribute="width" constant="18" id="Re7-8K-wpS"/>
@@ -230,6 +231,7 @@
                                                     <subviews>
                                                         <imageView opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="8oM-mj-AnE">
                                                             <rect key="frame" x="1" y="281" width="18" height="18"/>
+                                                            <color key="tintColor" red="0.93767918579999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="18" id="0q9-Ew-nWg"/>
                                                                 <constraint firstAttribute="width" secondItem="8oM-mj-AnE" secondAttribute="height" multiplier="1:1" id="RZW-Z0-BRv"/>
@@ -393,7 +395,7 @@
                         <barButtonItem image="Resize Horizontal Filled-50.png" id="0BI-o1-5sO" userLabel="Trocar">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="exchangePlayer:" destination="vXZ-lx-hvc" id="Rue-Yy-B7I"/>
+                                <action selector="ChangePlayer:" destination="vXZ-lx-hvc" id="4Le-Q0-CcC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="RSx-oa-CBS"/>
@@ -407,6 +409,7 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="qdP-AH-Xmh"/>
                     <connections>
+                        <outlet property="ChangeButton" destination="0BI-o1-5sO" id="a77-cM-kU3"/>
                         <outlet property="arrowOpponentImageView" destination="u5h-Fy-4Ax" id="BSi-oP-gSb"/>
                         <outlet property="arrowTeamImageView" destination="8oM-mj-AnE" id="DqH-MO-Kmc"/>
                         <outlet property="ballImage" destination="c8z-3K-dlh" id="ttC-CT-Qcz"/>
@@ -414,7 +417,6 @@
                         <outlet property="benchOpponent" destination="geg-g1-dWa" id="PE1-MH-o7N"/>
                         <outlet property="benchTeamView" destination="hTC-eu-3xn" id="mGK-kC-GhY"/>
                         <outlet property="drawView" destination="qHO-vT-1RD" id="mH7-EA-5rt"/>
-                        <outlet property="exchangeButton" destination="0BI-o1-5sO" id="S7o-I8-v7s"/>
                         <outlet property="mainView" destination="wMQ-8T-dQo" id="erR-i7-6bN"/>
                         <outlet property="opponentView" destination="GoW-4r-ADK" id="Y6O-d5-7x0"/>
                         <outlet property="removeButton" destination="o3T-qv-U7x" id="IDh-o9-tdr"/>
