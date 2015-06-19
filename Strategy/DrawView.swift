@@ -13,7 +13,7 @@ class DrawView: UIView {
     var lines: [Line] = []
     var lastPoint: CGPoint!
     var drawColor = UIColor.blackColor()
-    
+
     
     required init(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
@@ -48,4 +48,5 @@ class DrawView: UIView {
             CGContextStrokePath(context)
         }
     }
+    
 }
