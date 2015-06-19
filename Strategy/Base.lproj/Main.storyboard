@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gLm-RY-h0p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gLm-RY-h0p">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -350,13 +350,17 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="rEw-Y0-4jG"/>
-                        <barButtonItem image="Eraser-50.png" id="MVx-Cv-vn8" userLabel="Apagar Tudo">
+                        <barButtonItem image="Eraser-50" id="goB-ga-SU3">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="IdP-Ub-1h5"/>
+                        <barButtonItem image="Undo-50" id="MVx-Cv-vn8" userLabel="Apagar Tudo">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="undoTapped" destination="vXZ-lx-hvc" id="Ghp-UD-Uaa"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="IdP-Ub-1h5"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="rOq-eQ-Nlt"/>
                         <barButtonItem tag="1" image="pen" id="ono-5y-PKa" userLabel="Vermelho" colorLabel="IBBuiltInLabel-Purple">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -391,10 +395,6 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Dl5-cJ-rfe"/>
-                        <barButtonItem image="Save-50" id="mPP-Wt-AF4" userLabel="Adicionar">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="rOq-eQ-Nlt"/>
                         <barButtonItem image="Resize Horizontal Filled-50.png" id="0BI-o1-5sO" userLabel="Trocar">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -435,11 +435,11 @@
     </scenes>
     <resources>
         <image name="Erase-50.png" width="50" height="50"/>
-        <image name="Eraser-50.png" width="50" height="50"/>
+        <image name="Eraser-50" width="50" height="50"/>
         <image name="Remove User-50.png" width="50" height="50"/>
         <image name="Resize Horizontal Filled-50.png" width="50" height="50"/>
-        <image name="Save-50" width="50" height="50"/>
         <image name="Stadium-50.png" width="50" height="50"/>
+        <image name="Undo-50" width="40" height="40"/>
         <image name="arrow" width="50" height="50"/>
         <image name="arrowOther" width="50" height="50"/>
         <image name="ball" width="640" height="480"/>

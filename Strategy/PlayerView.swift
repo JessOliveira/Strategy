@@ -107,7 +107,7 @@ class PlayerView: UIView {
     
     //appear
     func appearItself(){
-        self.layer.borderWidth=2
+        self.layer.borderWidth=4
 
         self.backgroundColor = self.color
         setLabelChange(self.text)

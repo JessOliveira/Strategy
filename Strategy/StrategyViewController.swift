@@ -126,6 +126,7 @@ class StrategyViewController: UIViewController {
         
         //disappear players in bench
         for view in bench{
+        
             view.removeItself()
         }
         
@@ -293,19 +294,28 @@ class StrategyViewController: UIViewController {
             }
         }
     }
+    
+    func setAllFalse(){
+        self.willRemove = false;
+        self.willChange = false;
+        self.willChangeTwo = false;
+        self.removeButton.tintColor = UIColor.blackColor()
+        self.ChangeButton.tintColor = UIColor.blackColor()
+    }
 
     // MARK: Configurations UIButtonItem
     //clear all drawings
     @IBAction func clearTapped(){
+        self.setAllFalse()
         var theDrawView : DrawView = drawView as! DrawView
         theDrawView.lines = []
         theDrawView.setNeedsDisplay()
     }
     
     @IBAction func undoTapped(){
-        var theDrawView : DrawView = drawView as! DrawView
-        //var theLine : Line = Line as! Line
+        self.setAllFalse()
         
+        var theDrawView : DrawView = drawView as! DrawView
         if (theDrawView.lines.count > 0) {
             theDrawView.lines.removeLast()
         }
@@ -314,6 +324,8 @@ class StrategyViewController: UIViewController {
     
     //change color
     @IBAction func colorTapped(button: UIBarButtonItem!){
+        self.setAllFalse()
+        
         var theDrawView : DrawView = drawView as! DrawView
         var color : UIColor!
         if(button.tag == 1){
