@@ -119,6 +119,7 @@ class PlayerView: UIView {
         self.mainView.addSubview(self)
     }
 
+
 }
 
 

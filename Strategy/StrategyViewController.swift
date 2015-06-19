@@ -48,6 +48,8 @@ class StrategyViewController: UIViewController {
     
     var bench : [PlayerView] = []
     
+    var soccer : [PlayerView] = []
+    
     var blueColor: UIColor = UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)
     
     var redColor: UIColor = UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)
@@ -112,7 +114,7 @@ class StrategyViewController: UIViewController {
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         
         //appear the players in bench
-        for view in bench{
+        for view in self.bench{
             view.appearItself()
         }
         
@@ -126,14 +128,18 @@ class StrategyViewController: UIViewController {
         
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(0)
         
+        var i: Int = 0
         //disappear players in bench
-        for view in bench{
-            println( view.frame.origin.x)
+        for view in self.bench{
             if(view.frame.origin.x > 13 && view.frame.origin.x < 960){
+                var viewNew : PlayerView = view
+                viewNew.setLabelChange(String(i+22))
                 view.changeSuperView(self.mainView)
+                self.soccer.append(view)
             }else{
                 view.removeItself()
             }
+            i++;
         }
         
         self.view.layoutIfNeeded()
@@ -233,6 +239,7 @@ class StrategyViewController: UIViewController {
         //create player blue in soccer
         for  index in 0...10 {
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
+            self.soccer.append(DynamicView)
         }
         
         constX = [0.85, 0.80, 0.80, 0.70, 0.70, 0.67, 0.60, 0.60, 0.55, 0.55, 0.50]
@@ -240,14 +247,16 @@ class StrategyViewController: UIViewController {
         //create player red in soccer
         for  index in 0...10 {
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
+            self.soccer.append(DynamicView)
+
         }
 
     }
     
     func addBegingBench(){
         
-        var one = 22
-        for i in 0...0{
+        var one = 62
+        for i in 0...5{
             var constantY: CGFloat = 0.12
             //create player blue in bench
             for index in one...one+9{
@@ -358,12 +367,18 @@ class StrategyViewController: UIViewController {
     
     //change mode - without players or begin players
     @IBAction func changeMode(button: UIBarButtonItem!){
+        self.compressPanel()
+
         if(self.isClear == true){
             //general - go to state 1
+            self.bench.removeAll(keepCapacity: true)
+            self.soccer.removeAll(keepCapacity: true)
             self.addBeginPlayers()
+            self.addBegingBench()
             self.isClear = false
         }else{
             //empy - go to state 2
+            self.soccer.removeAll(keepCapacity: true)
             self.removeAllPlayers()
             self.isClear = true
         }
