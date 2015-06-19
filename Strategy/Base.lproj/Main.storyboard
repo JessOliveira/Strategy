@@ -335,7 +335,10 @@
                         </variation>
                     </view>
                     <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="aAo-PW-QFq"/>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="aAo-PW-QFq"/>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="65j-gY-cIf"/>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="RFr-La-q4y"/>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="ca0-XT-49x"/>
                         <barButtonItem image="Stadium-50.png" id="iKl-6N-wHh" userLabel="Campo" colorLabel="IBBuiltInLabel-Red">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -350,17 +353,13 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="rEw-Y0-4jG"/>
-                        <barButtonItem image="Eraser-50" id="goB-ga-SU3">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="IdP-Ub-1h5"/>
                         <barButtonItem image="Undo-50" id="MVx-Cv-vn8" userLabel="Apagar Tudo">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="undoTapped" destination="vXZ-lx-hvc" id="Ghp-UD-Uaa"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="rOq-eQ-Nlt"/>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="rOq-eQ-Nlt"/>
                         <barButtonItem tag="1" image="pen" id="ono-5y-PKa" userLabel="Vermelho" colorLabel="IBBuiltInLabel-Purple">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -394,7 +393,7 @@
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="FBh-1K-vBq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Dl5-cJ-rfe"/>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="Dl5-cJ-rfe"/>
                         <barButtonItem image="Resize Horizontal Filled-50.png" id="0BI-o1-5sO" userLabel="Trocar">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -408,7 +407,16 @@
                                 <action selector="removePlayer:" destination="vXZ-lx-hvc" id="Oci-B8-rgF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="UOO-kv-Cml"/>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="UOO-kv-Cml"/>
+                        <barButtonItem image="grass" id="H52-eY-RXc">
+                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeSoccer:" destination="vXZ-lx-hvc" id="zpZ-jN-gFQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="sCZ-15-fXp"/>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="MpI-nL-zBW"/>
+                        <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="03x-c2-ON7"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="qdP-AH-Xmh"/>
                     <connections>
@@ -426,6 +434,7 @@
                         <outlet property="scrollView" destination="ATt-3x-CxC" id="DHl-Qa-fWE"/>
                         <outlet property="teamView" destination="FoC-9e-z3d" id="1aw-LN-hjY"/>
                         <outlet property="teamWidth" destination="Tpt-BY-zOZ" id="lcT-fM-Fwj"/>
+                        <outlet property="typeImage" destination="HPd-wm-xsf" id="Zyu-Ee-cKD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -435,7 +444,6 @@
     </scenes>
     <resources>
         <image name="Erase-50.png" width="50" height="50"/>
-        <image name="Eraser-50" width="50" height="50"/>
         <image name="Remove User-50.png" width="50" height="50"/>
         <image name="Resize Horizontal Filled-50.png" width="50" height="50"/>
         <image name="Stadium-50.png" width="50" height="50"/>
@@ -443,6 +451,7 @@
         <image name="arrow" width="50" height="50"/>
         <image name="arrowOther" width="50" height="50"/>
         <image name="ball" width="640" height="480"/>
+        <image name="grass" width="40" height="40"/>
         <image name="pen" width="40" height="40"/>
         <image name="soccer" width="1768" height="1200"/>
     </resources>

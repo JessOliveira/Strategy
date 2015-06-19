@@ -30,6 +30,7 @@ class StrategyViewController: UIViewController {
     
     @IBOutlet weak var benchTeamView: UIView!
     @IBOutlet weak var benchOpponent: UIView!
+    @IBOutlet weak var typeImage: UIImageView!
     
     var isPanelExpanded = false;
 
@@ -86,6 +87,7 @@ class StrategyViewController: UIViewController {
         
         //add players
         self.addBeginPlayers()
+        self.addBegingBench()
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -126,8 +128,12 @@ class StrategyViewController: UIViewController {
         
         //disappear players in bench
         for view in bench{
-        
-            view.removeItself()
+            println( view.frame.origin.x)
+            if(view.frame.origin.x > 13 && view.frame.origin.x < 960){
+                view.changeSuperView(self.mainView)
+            }else{
+                view.removeItself()
+            }
         }
         
         self.view.layoutIfNeeded()
@@ -235,25 +241,33 @@ class StrategyViewController: UIViewController {
         for  index in 0...10 {
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
         }
-        
-        var constantY: CGFloat = 0.12
-        //create player blue in bench
-        for index in 12...21{
-            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index, constX: 0.01, constY: constantY, view:self.view , mainView: self.view)
-            DynamicView.removeItself()
-            self.bench.append(DynamicView)
-            constantY += 0.08
-        }
-        
-        constantY = 0.12
-        //create player red in bench
-        for index in 12...21{
-            var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index, constX: 0.94, constY: constantY, view:self.view , mainView: self.view)
-            DynamicView.removeItself()
-            self.bench.append(DynamicView)
-            constantY += 0.08
-        }
 
+    }
+    
+    func addBegingBench(){
+        
+        var one = 22
+        for i in 0...0{
+            var constantY: CGFloat = 0.12
+            //create player blue in bench
+            for index in one...one+9{
+                var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index, constX: 0.01, constY: constantY, view:self.view , mainView: self.view)
+                DynamicView.removeItself()
+                self.bench.append(DynamicView)
+                constantY += 0.08
+            }
+            
+            constantY = 0.12
+            //create player red in bench
+            for index in one...one+9{
+                var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index, constX: 0.94, constY: constantY, view:self.view , mainView: self.view)
+                DynamicView.removeItself()
+                self.bench.append(DynamicView)
+                constantY += 0.08
+            }
+            one-=10
+        }
+        
     }
     
     //remove players in soccer
@@ -412,5 +426,20 @@ class StrategyViewController: UIViewController {
                 self.willChange = false
                 button.tintColor = UIColor.blackColor()
             }
+    }
+    
+    @IBAction func changeSoccer(button: UIBarButtonItem!){
+        let image = UIImage(named: "square")
+        let image2 = UIImage(named: "grass")
+
+        if(button.image == image){
+            //general - go to state 1
+            button.image = image2
+            self.typeImage.image = UIImage(named: "soccer")
+        }else{
+            //empy - go to state 2
+            button.image = image
+            self.typeImage.image = UIImage(named: "soccer2")
+        }
     }
 }
