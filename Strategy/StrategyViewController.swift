@@ -391,6 +391,4 @@ class StrategyViewController: UIViewController {
                 button.tintColor = UIColor.blackColor()
             }
     }
-    
-    
 }
