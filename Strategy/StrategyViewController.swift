@@ -132,8 +132,6 @@ class StrategyViewController: UIViewController {
         //disappear players in bench
         for view in self.bench{
             if(view.frame.origin.x > 13 && view.frame.origin.x < 960){
-                var viewNew : PlayerView = view
-                viewNew.setLabelChange(String(i+22))
                 view.changeSuperView(self.mainView)
                 self.soccer.append(view)
             }else{
