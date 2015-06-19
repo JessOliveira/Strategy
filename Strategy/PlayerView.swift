@@ -20,6 +20,7 @@ class PlayerView: UIView {
     }
     
     
+    //init all
     init(color: UIColor, text: Int, constX: CGFloat, constY: CGFloat, view: UIView, mainView: UIView){
         self.color = color
         self.text = String(text)
@@ -39,6 +40,7 @@ class PlayerView: UIView {
         super.init(coder: aDecoder)
     }
     
+    //label in center
     func createLabel(index: Int, view: UIView) -> UILabel{
         var label = UILabel(frame: CGRectMake(0, 0, view.frame.width*0.04, view.frame.width*0.02))
         label.center = CGPointMake(view.frame.width*0.02, view.frame.width*0.02)
@@ -50,6 +52,7 @@ class PlayerView: UIView {
         return label
     }
     
+    //proportional format circle
     func createFormatView(DynamicView: UIView, mainView: UIView, view: UIView){
         DynamicView.layer.cornerRadius = view.frame.width*0.02
         DynamicView.layer.borderWidth = 4
@@ -60,11 +63,8 @@ class PlayerView: UIView {
         
         self.mainView.addSubview(DynamicView)
     }
-
-    func setColor(view: UIView, color : UIColor){
-        view.backgroundColor = color
-    }
     
+    //gesture player
     func pan(recognizer:UIPanGestureRecognizer) {
         var translation  = recognizer.translationInView(self.mainView)
         recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
@@ -83,13 +83,19 @@ class PlayerView: UIView {
         self.label.text = labelNew
         self.text = labelNew
     }
-
     
+    //set color simple
+    func setColor(view: UIView, color : UIColor){
+        view.backgroundColor = color
+    }
+    
+    //set color with the property
     func setBackGroungColor(color: UIColor){
         self.backgroundColor = color
         self.color = color
     }
     
+    //invisible
     func removeItself(){
         self.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
         var textStore: String = self.text
@@ -99,6 +105,7 @@ class PlayerView: UIView {
 
     }
     
+    //appear
     func appearItself(){
         self.layer.borderWidth=2
 
@@ -106,6 +113,7 @@ class PlayerView: UIView {
         setLabelChange(self.text)
     }
     
+    //change SuperView - test
     func changeSuperView(view: UIView){
         self.mainView = view
         self.mainView.addSubview(self)
