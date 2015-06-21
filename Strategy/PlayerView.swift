@@ -61,6 +61,11 @@ class PlayerView: UIView {
         var panPlayer = UIPanGestureRecognizer(target:self, action:"pan:")
         DynamicView.addGestureRecognizer(panPlayer)
         
+        var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"touchDouble:")
+        touchDoublePlayer.numberOfTapsRequired  = 2
+        DynamicView.addGestureRecognizer(touchDoublePlayer)
+
+        
         self.mainView.addSubview(DynamicView)
     }
     
@@ -70,6 +75,7 @@ class PlayerView: UIView {
         recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.mainView)
     }
+    
     
     func getLabel() -> String{
         return self.label.text!

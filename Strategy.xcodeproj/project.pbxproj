@@ -28,6 +28,7 @@
 		98CBBDAC1B2B5BAA00B48C3A /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CBBDAB1B2B5BAA00B48C3A /* DrawView.swift */; };
 		98CBBDAE1B2B5C1E00B48C3A /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CBBDAD1B2B5C1E00B48C3A /* Line.swift */; };
 		C26033041B2B3EE60055B46B /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26033031B2B3EE60055B46B /* PlayerView.swift */; };
+		C26B1A5A1B37688000387AAA /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B1A591B37688000387AAA /* PopoverViewController.swift */; };
 		C29F813C1B28A66A0049155C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F813B1B28A66A0049155C /* AppDelegate.swift */; };
 		C29F81411B28A66A0049155C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29F813F1B28A66A0049155C /* Main.storyboard */; };
 		C29F81461B28A66A0049155C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29F81441B28A66A0049155C /* LaunchScreen.xib */; };
@@ -68,6 +69,7 @@
 		98CBBDAB1B2B5BAA00B48C3A /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		98CBBDAD1B2B5C1E00B48C3A /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		C26033031B2B3EE60055B46B /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		C26B1A591B37688000387AAA /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		C29F81361B28A66A0049155C /* Strategy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strategy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29F813A1B28A66A0049155C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C29F813B1B28A66A0049155C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				C29F815B1B28B1590049155C /* StrategyViewController.swift */,
+				C26B1A591B37688000387AAA /* PopoverViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				C29F813C1B28A66A0049155C /* AppDelegate.swift in Sources */,
 				98CBBDAC1B2B5BAA00B48C3A /* DrawView.swift in Sources */,
 				C29F815C1B28B1590049155C /* StrategyViewController.swift in Sources */,
+				C26B1A5A1B37688000387AAA /* PopoverViewController.swift in Sources */,
 				98CBBDAE1B2B5C1E00B48C3A /* Line.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

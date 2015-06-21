@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StrategyViewController: UIViewController {
+class StrategyViewController: UIViewController, UIPopoverPresentationControllerDelegate  {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mainView: UIView!
     
@@ -54,6 +54,7 @@ class StrategyViewController: UIViewController {
     
     var redColor: UIColor = UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,6 +63,10 @@ class StrategyViewController: UIViewController {
         //add panGesture in ball
         var pan = UIPanGestureRecognizer(target:self, action:"pan:")
         self.ballView.addGestureRecognizer(pan)
+        
+        var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
+        touchDoublePlayer.numberOfTapsRequired  = 2
+        ballView.addGestureRecognizer(touchDoublePlayer)
         
         //scrollView
         self.scrollView.minimumZoomScale = 1.0
@@ -227,6 +232,20 @@ class StrategyViewController: UIViewController {
             self.playerToMove.setBackGroungColor(self.colorFromPlayerToMove)
         }
     }
+    
+    func doubleTap(recognizer:UITapGestureRecognizer) {
+        var popoverContent = self.storyboard?.instantiateViewControllerWithIdentifier("numberChage") as! PopoverViewController
+        var nav = UINavigationController(rootViewController: popoverContent)
+        nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+        var popover = nav.popoverPresentationController
+        popoverContent.preferredContentSize = CGSizeMake(200,200)
+        popover!.delegate = self
+        popover!.permittedArrowDirections = UIPopoverArrowDirection.Any
+        popover!.sourceView = recognizer.view
+        popover!.sourceRect = CGRectMake(self.view.frame.width*0.05 ,0,0,0)
+        
+        self.presentViewController(nav, animated: true, completion: nil)
+    }
 
     
     // MARK: AddPlayers Functions
@@ -238,6 +257,11 @@ class StrategyViewController: UIViewController {
         for  index in 0...10 {
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
             self.soccer.append(DynamicView)
+            
+            
+            var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
+            touchDoublePlayer.numberOfTapsRequired  = 2
+            DynamicView.addGestureRecognizer(touchDoublePlayer)
         }
         
         constX = [0.85, 0.80, 0.80, 0.70, 0.70, 0.67, 0.60, 0.60, 0.55, 0.55, 0.50]
@@ -246,6 +270,10 @@ class StrategyViewController: UIViewController {
         for  index in 0...10 {
             var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index + 1, constX: constX[index], constY: constY[index], view:self.view , mainView: self.mainView)
             self.soccer.append(DynamicView)
+            
+            var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
+            touchDoublePlayer.numberOfTapsRequired  = 2
+            DynamicView.addGestureRecognizer(touchDoublePlayer)
 
         }
 
@@ -254,7 +282,7 @@ class StrategyViewController: UIViewController {
     func addBegingBench(){
         
         var one = 62
-        for i in 0...5{
+        for i in 0...0{
             var constantY: CGFloat = 0.12
             //create player blue in bench
             for index in one...one+9{
@@ -262,6 +290,10 @@ class StrategyViewController: UIViewController {
                 DynamicView.removeItself()
                 self.bench.append(DynamicView)
                 constantY += 0.08
+                
+                var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
+                touchDoublePlayer.numberOfTapsRequired  = 2
+                DynamicView.addGestureRecognizer(touchDoublePlayer)
             }
             
             constantY = 0.12
@@ -271,6 +303,10 @@ class StrategyViewController: UIViewController {
                 DynamicView.removeItself()
                 self.bench.append(DynamicView)
                 constantY += 0.08
+                
+                var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
+                touchDoublePlayer.numberOfTapsRequired  = 2
+                DynamicView.addGestureRecognizer(touchDoublePlayer)
             }
             one-=10
         }
@@ -295,7 +331,7 @@ class StrategyViewController: UIViewController {
             if let tag = view.tag {
                 if tag != tagNew {
                     button.tintColor = UIColor.grayColor()
-                    var tap = UITapGestureRecognizer(target:self, action:"tapChangeOne:")
+                    var tap = UITapGestureRecognizer(target:self, action:"doubleTap:")
                     view.addGestureRecognizer(tap)
                 }
             }
@@ -308,7 +344,7 @@ class StrategyViewController: UIViewController {
             if let tag = view.tag {
                 if tag != tagNew {
                     if(view.backgroundColor == color){
-                        var tap = UITapGestureRecognizer(target:self, action:"tapChangeTwo:")
+                        var tap = UITapGestureRecognizer(target:self, action:"doubleTap:")
                         view.addGestureRecognizer(tap)
                     }
                 }
@@ -455,4 +491,6 @@ class StrategyViewController: UIViewController {
             self.typeImage.image = UIImage(named: "soccer2")
         }
     }
+
+
 }
