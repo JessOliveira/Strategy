@@ -31,6 +31,8 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     @IBOutlet weak var benchTeamView: UIView!
     @IBOutlet weak var benchOpponent: UIView!
     @IBOutlet weak var typeImage: UIImageView!
+    @IBOutlet weak var addOpponentButton: UIButton!
+    @IBOutlet weak var addTeamButton: UIButton!
     
     var isPanelExpanded = false;
 
@@ -83,6 +85,9 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         let tapIcon = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
             teamView.addGestureRecognizer(tapIcon)
         
+        self.addTeamButton.enabled = false
+        self.addOpponentButton.enabled = false
+        
         //create tap in icon image
         let tapIconOpponent = UITapGestureRecognizer(target: self, action: Selector("tapPanel:"))
         opponentView.addGestureRecognizer(tapIconOpponent)
@@ -102,6 +107,10 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     
     // MARK: Animation Functions for bench
     func expandPanel() {
+        self.addTeamButton.enabled = true
+        self.addOpponentButton.enabled = true
+        self.addOpponentButton.imageView?.tintColor = self.redColor
+        self.addTeamButton.imageView?.tintColor = self.blueColor
         
         //Change button to expand state
         self.arrowTeamImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
@@ -128,10 +137,15 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         
         self.arrowOpponentImageView.transform = CGAffineTransformMakeRotation(0)
         
+        self.addTeamButton.enabled = false
+        self.addOpponentButton.enabled = false
+        self.addOpponentButton.imageView?.tintColor = UIColor.blackColor()
+        self.addTeamButton.imageView?.tintColor = UIColor.blackColor()
+        
         var i: Int = 0
         //disappear players in bench
         for view in self.bench{
-            if(view.frame.origin.x > 13 && view.frame.origin.x < 960){
+            if(view.frame.origin.x > 30 && view.frame.origin.x < 940){
                 view.changeSuperView(self.mainView)
                 
                 self.soccer.append(view)
@@ -308,11 +322,11 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         var one = 12
             var constantY: CGFloat = 0.12
             //create player blue in bench
-            for index in one...one+9{
-                var DynamicView: PlayerView = PlayerView(color: UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0), text: index, constX: 0.01, constY: constantY, view:self.view , mainView: self.view)
+            for index in one...one+10{
+                var DynamicView: PlayerView = PlayerView(color: self.blueColor, text: index, constX: 0.01, constY: constantY, view:self.view , mainView: self.view)
                 DynamicView.removeItself()
                 self.bench.append(DynamicView)
-                constantY += 0.08
+                constantY += 0.07
                 
                 var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
                 touchDoublePlayer.numberOfTapsRequired  = 2
@@ -321,11 +335,11 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             
             constantY = 0.12
             //create player red in bench
-            for index in one...one+9{
-                var DynamicView: PlayerView = PlayerView(color: UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0), text: index, constX: 0.94, constY: constantY, view:self.view , mainView: self.view)
+            for index in one...one+10{
+                var DynamicView: PlayerView = PlayerView(color: self.redColor, text: index, constX: 0.95, constY: constantY, view:self.view , mainView: self.view)
                 DynamicView.removeItself()
                 self.bench.append(DynamicView)
-                constantY += 0.08
+                constantY += 0.07
                 
                 var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
                 touchDoublePlayer.numberOfTapsRequired  = 2
@@ -378,6 +392,10 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         self.willChangeTwo = false;
         self.removeButton.tintColor = UIColor.blackColor()
         self.ChangeButton.tintColor = UIColor.blackColor()
+    }
+    
+    func findNextNumber() -> Int{
+        return 0;
     }
 
     // MARK: Configurations UIButtonItem
@@ -512,4 +530,22 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         }
     }
 
+    @IBAction func addOnePlayerRedButton(sender: UIButton) {
+        var DynamicView: PlayerView = PlayerView(color: self.redColor, text: 0, constX: 0.95, constY: 0.12, view:self.view , mainView: self.view)
+        self.bench.append(DynamicView)
+        
+        
+        var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
+        touchDoublePlayer.numberOfTapsRequired  = 2
+        DynamicView.addGestureRecognizer(touchDoublePlayer)
+    }
+    
+    @IBAction func addOnePlayerButton(sender: UIButton) {
+        var DynamicView: PlayerView = PlayerView(color: self.blueColor, text: 0, constX: 0.01, constY: 0.12, view:self.view , mainView: self.view)
+        self.bench.append(DynamicView)
+        
+        var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
+        touchDoublePlayer.numberOfTapsRequired  = 2
+        DynamicView.addGestureRecognizer(touchDoublePlayer)
+    }
 }

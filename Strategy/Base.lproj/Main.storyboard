@@ -142,26 +142,46 @@
                                                     </vibrancyEffect>
                                                 </visualEffectView>
                                                 <view tag="103" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoW-4r-ADK" userLabel="OpponentView">
-                                                    <rect key="frame" x="0.0" y="-10" width="20" height="536"/>
+                                                    <rect key="frame" x="0.0" y="-10" width="44" height="536"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowOther" translatesAutoresizingMaskIntoConstraints="NO" id="u5h-Fy-4Ax">
-                                                            <rect key="frame" x="-5" y="275" width="30" height="30"/>
+                                                            <rect key="frame" x="0.0" y="275" width="30" height="30"/>
                                                             <color key="tintColor" red="0.93767918579999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="u5h-Fy-4Ax" secondAttribute="height" multiplier="1:1" id="FBx-kA-N4v"/>
                                                                 <constraint firstAttribute="width" constant="30" id="Re7-8K-wpS"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9S-jH-VQL">
+                                                            <rect key="frame" x="9" y="506" width="30" height="30"/>
+                                                            <state key="normal" title="Button" image="Add User-50.png">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="addOnePlayerRedButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Rqz-gi-HIZ"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="GoW-4r-ADK" secondAttribute="height" multiplier="1:1" id="J6I-KK-NK8"/>
                                                         <constraint firstAttribute="width" priority="100" constant="20" id="M5j-gp-egw"/>
+                                                        <constraint firstItem="M9S-jH-VQL" firstAttribute="leading" secondItem="GoW-4r-ADK" secondAttribute="leading" constant="5" id="O1Y-ht-aFY"/>
                                                         <constraint firstAttribute="centerX" secondItem="u5h-Fy-4Ax" secondAttribute="centerX" id="Pgy-x3-TxL"/>
+                                                        <constraint firstItem="M9S-jH-VQL" firstAttribute="width" secondItem="u5h-Fy-4Ax" secondAttribute="width" id="Qrz-rN-37Z"/>
+                                                        <constraint firstAttribute="bottom" secondItem="M9S-jH-VQL" secondAttribute="bottom" id="dN8-Xy-QcU"/>
+                                                        <constraint firstItem="u5h-Fy-4Ax" firstAttribute="leading" secondItem="GoW-4r-ADK" secondAttribute="leading" id="eAU-N9-BZU"/>
                                                         <constraint firstAttribute="centerY" secondItem="u5h-Fy-4Ax" secondAttribute="centerY" constant="-22" id="kzD-p1-GLq"/>
+                                                        <constraint firstItem="M9S-jH-VQL" firstAttribute="height" secondItem="u5h-Fy-4Ax" secondAttribute="height" id="mM8-qr-HBE"/>
+                                                        <constraint firstItem="M9S-jH-VQL" firstAttribute="leading" secondItem="GoW-4r-ADK" secondAttribute="leading" constant="5" id="ozM-pZ-Sct"/>
+                                                        <constraint firstAttribute="trailing" secondItem="M9S-jH-VQL" secondAttribute="trailing" constant="5" id="qWX-ku-1Au"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="J6I-KK-NK8"/>
+                                                            <exclude reference="M5j-gp-egw"/>
+                                                            <exclude reference="Pgy-x3-TxL"/>
+                                                            <exclude reference="O1Y-ht-aFY"/>
+                                                            <exclude reference="ozM-pZ-Sct"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -200,6 +220,7 @@
                                     <constraint firstItem="GoW-4r-ADK" firstAttribute="width" secondItem="geg-g1-dWa" secondAttribute="width" id="S74-C2-rMf"/>
                                     <constraint firstItem="Nq4-mg-viD" firstAttribute="top" secondItem="geg-g1-dWa" secondAttribute="top" id="Z2R-GF-XHI"/>
                                     <constraint firstAttribute="bottom" secondItem="Nq4-mg-viD" secondAttribute="bottom" constant="-65" id="hG3-UZ-sAm"/>
+                                    <constraint firstItem="GoW-4r-ADK" firstAttribute="width" secondItem="geg-g1-dWa" secondAttribute="width" id="xdO-Pe-Fuo"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -228,26 +249,44 @@
                                                     </vibrancyEffect>
                                                 </visualEffectView>
                                                 <view opaque="NO" tag="102" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoC-9e-z3d" userLabel="TeamView">
-                                                    <rect key="frame" x="24" y="-10" width="20" height="536"/>
+                                                    <rect key="frame" x="0.0" y="-10" width="44" height="536"/>
                                                     <subviews>
                                                         <imageView opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="8oM-mj-AnE">
-                                                            <rect key="frame" x="-5" y="275" width="30" height="30"/>
+                                                            <rect key="frame" x="14" y="275" width="30" height="30"/>
                                                             <color key="tintColor" red="0.93767918579999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="0q9-Ew-nWg"/>
                                                                 <constraint firstAttribute="width" secondItem="8oM-mj-AnE" secondAttribute="height" multiplier="1:1" id="RZW-Z0-BRv"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOz-VA-GM6">
+                                                            <rect key="frame" x="5" y="506" width="30" height="30"/>
+                                                            <state key="normal" title="Button" image="Add User-50.png">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="addOnePlayerButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lxO-cd-LQu"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="centerY" secondItem="8oM-mj-AnE" secondAttribute="centerY" constant="-22" id="1X2-8L-BH9"/>
+                                                        <constraint firstItem="8oM-mj-AnE" firstAttribute="height" secondItem="xOz-VA-GM6" secondAttribute="height" id="3OB-3b-B8C"/>
+                                                        <constraint firstAttribute="trailing" secondItem="xOz-VA-GM6" secondAttribute="trailing" constant="5" id="88A-an-jxG"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8oM-mj-AnE" secondAttribute="trailing" id="Z2Z-GF-AAR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="xOz-VA-GM6" secondAttribute="bottom" id="cb1-io-uxV"/>
                                                         <constraint firstAttribute="width" secondItem="FoC-9e-z3d" secondAttribute="height" multiplier="1:1" id="hY4-rV-onL"/>
+                                                        <constraint firstItem="xOz-VA-GM6" firstAttribute="leading" secondItem="FoC-9e-z3d" secondAttribute="leading" constant="5" id="mSq-ug-hdj"/>
                                                         <constraint firstAttribute="centerX" secondItem="8oM-mj-AnE" secondAttribute="centerX" id="tkr-sM-Cdi"/>
-                                                        <constraint firstAttribute="width" constant="20" id="zZZ-jt-RdM"/>
+                                                        <constraint firstItem="8oM-mj-AnE" firstAttribute="width" secondItem="xOz-VA-GM6" secondAttribute="width" id="uYf-xm-brh"/>
+                                                        <constraint firstAttribute="width" constant="40" id="zZZ-jt-RdM"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="hY4-rV-onL"/>
+                                                            <exclude reference="zZZ-jt-RdM"/>
+                                                            <exclude reference="tkr-sM-Cdi"/>
+                                                            <exclude reference="88A-an-jxG"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -279,6 +318,7 @@
                                     <constraint firstAttribute="width" constant="20" id="HlA-BE-abT"/>
                                     <constraint firstItem="UXw-O8-qyJ" firstAttribute="top" secondItem="hTC-eu-3xn" secondAttribute="top" id="JoO-B8-4m1"/>
                                     <constraint firstAttribute="width" priority="500" constant="60" id="Tpt-BY-zOZ"/>
+                                    <constraint firstAttribute="width" secondItem="FoC-9e-z3d" secondAttribute="width" id="UZG-SA-GGK"/>
                                     <constraint firstAttribute="trailing" secondItem="UXw-O8-qyJ" secondAttribute="trailing" id="Z5E-6U-tyh"/>
                                     <constraint firstItem="UXw-O8-qyJ" firstAttribute="leading" secondItem="hTC-eu-3xn" secondAttribute="leading" id="heP-jd-WdY"/>
                                     <constraint firstItem="FoC-9e-z3d" firstAttribute="height" secondItem="hTC-eu-3xn" secondAttribute="height" id="jo5-LP-SF0"/>
@@ -422,6 +462,8 @@
                     <navigationItem key="navigationItem" id="qdP-AH-Xmh"/>
                     <connections>
                         <outlet property="ChangeButton" destination="0BI-o1-5sO" id="a77-cM-kU3"/>
+                        <outlet property="addOpponentButton" destination="M9S-jH-VQL" id="OeA-Tl-fPK"/>
+                        <outlet property="addTeamButton" destination="xOz-VA-GM6" id="2s0-W1-cfJ"/>
                         <outlet property="arrowOpponentImageView" destination="u5h-Fy-4Ax" id="BSi-oP-gSb"/>
                         <outlet property="arrowTeamImageView" destination="8oM-mj-AnE" id="DqH-MO-Kmc"/>
                         <outlet property="ballImage" destination="c8z-3K-dlh" id="ttC-CT-Qcz"/>
@@ -512,6 +554,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Add User-50.png" width="50" height="50"/>
         <image name="Change User-50" width="50" height="50"/>
         <image name="Erase-50.png" width="50" height="50"/>
         <image name="Remove User-50.png" width="50" height="50"/>
