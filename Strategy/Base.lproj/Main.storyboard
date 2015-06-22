@@ -460,11 +460,37 @@
                                     <constraint firstAttribute="width" constant="100" id="202-n0-3vE"/>
                                     <constraint firstAttribute="width" secondItem="XMt-ek-26S" secondAttribute="height" multiplier="1:1" id="4GJ-fS-FQr"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="t77-4o-pg1" id="Emf-Ae-9nf"/>
+                                    <outlet property="delegate" destination="t77-4o-pg1" id="B6a-2e-v2P"/>
+                                </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wc-af-JIZ">
+                                <rect key="frame" x="267" y="155" width="67" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3Wc-af-JIZ" secondAttribute="height" multiplier="23:15" id="Jfr-Ki-U6x"/>
+                                    <constraint firstAttribute="width" constant="67" id="UVk-Ir-JRq"/>
+                                    <constraint firstAttribute="width" constant="46" id="eIU-pM-gSB"/>
+                                </constraints>
+                                <state key="normal" title="Change">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eIU-pM-gSB"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="changeNumber:" destination="t77-4o-pg1" eventType="touchUpInside" id="mbt-MJ-pWT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="3Wc-af-JIZ" secondAttribute="centerX" id="FS6-uE-BYl"/>
                             <constraint firstItem="XMt-ek-26S" firstAttribute="leading" secondItem="HQc-E8-cEn" secondAttribute="leadingMargin" constant="10" id="I73-Up-139"/>
+                            <constraint firstItem="3Wc-af-JIZ" firstAttribute="top" secondItem="XMt-ek-26S" secondAttribute="bottom" constant="25" id="a8y-ye-Lb7"/>
                             <constraint firstAttribute="centerX" secondItem="XMt-ek-26S" secondAttribute="centerX" id="pOq-dR-XvG"/>
                             <constraint firstItem="XMt-ek-26S" firstAttribute="top" secondItem="vBN-oN-dSv" secondAttribute="bottom" constant="10" id="yb3-3r-xvV"/>
                         </constraints>

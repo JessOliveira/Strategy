@@ -32,6 +32,8 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     @IBOutlet weak var benchOpponent: UIView!
     @IBOutlet weak var typeImage: UIImageView!
     
+    
+    
     var isPanelExpanded = false;
 
     var isClear = false;
@@ -53,6 +55,8 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     var blueColor: UIColor = UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)
     
     var redColor: UIColor = UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)
+    
+    var playerDetails: PlayerView = PlayerView(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00))
     
     
     override func viewDidLoad() {
@@ -234,9 +238,15 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     }
     
     func doubleTap(recognizer:UITapGestureRecognizer) {
+        self.playerDetails = recognizer.view as! PlayerView
+        
         var popoverContent = self.storyboard?.instantiateViewControllerWithIdentifier("numberChage") as! PopoverViewController
+        
         var nav = UINavigationController(rootViewController: popoverContent)
         nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+        nav.navigationBarHidden = false
+        nav.navigationBar.barTintColor = UIColor.whiteColor()
+        
         var popover = nav.popoverPresentationController
         popoverContent.preferredContentSize = CGSizeMake(200,200)
         popover!.delegate = self
@@ -244,7 +254,12 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         popover!.sourceView = recognizer.view
         popover!.sourceRect = CGRectMake(self.view.frame.width*0.05 ,0,0,0)
         
+        let selectedPlayer = self.playerDetails
+        popoverContent.selectedPlayer = selectedPlayer
+        
         self.presentViewController(nav, animated: true, completion: nil)
+        
+
     }
 
     
@@ -491,6 +506,5 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             self.typeImage.image = UIImage(named: "soccer2")
         }
     }
-
 
 }

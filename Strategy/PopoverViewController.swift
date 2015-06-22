@@ -9,11 +9,18 @@
 import UIKit
 
 class PopoverViewController: UIViewController {
+    
+    var numbers: [String] = []
+    var selectedNumber: String = ""
+    var selectedPlayer:PlayerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        for i in 1...100 {
+            self.numbers.append(String(i))
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +28,23 @@ class PopoverViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.numbers.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        self.selectedNumber = self.numbers[row]
+        return self.numbers[row]
+    }
+    
+    @IBAction func changeNumber(sender: UIButton) {
+        self.selectedPlayer.setLabelChange(self.selectedNumber)
+        
+    }
 
     /*
     // MARK: - Navigation
