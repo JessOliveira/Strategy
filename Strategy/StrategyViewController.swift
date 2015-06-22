@@ -136,9 +136,10 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
                 
                 self.soccer.append(view)
                 
-                for i in 0...(self.bench.count - 2){
+                for i in 0...(self.bench.count - 1){
                     if(view == self.bench[i]){
                         self.bench.removeAtIndex(i)
+                        break
                     }
                 }
                 
