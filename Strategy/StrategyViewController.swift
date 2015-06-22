@@ -68,10 +68,6 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         var pan = UIPanGestureRecognizer(target:self, action:"pan:")
         self.ballView.addGestureRecognizer(pan)
         
-        var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
-        touchDoublePlayer.numberOfTapsRequired  = 2
-        ballView.addGestureRecognizer(touchDoublePlayer)
-        
         //scrollView
         self.scrollView.minimumZoomScale = 1.0
         self.scrollView.maximumZoomScale = 2.0
@@ -238,26 +234,28 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     }
     
     func doubleTap(recognizer:UITapGestureRecognizer) {
-        self.playerDetails = recognizer.view as! PlayerView
+        if(self.willChange == false && self.willChangeTwo == false && self.willRemove == false){
+            self.playerDetails = recognizer.view as! PlayerView
         
-        var popoverContent = self.storyboard?.instantiateViewControllerWithIdentifier("numberChage") as! PopoverViewController
+            var popoverContent = self.storyboard?.instantiateViewControllerWithIdentifier("numberChage") as! PopoverViewController
         
-        var nav = UINavigationController(rootViewController: popoverContent)
-        nav.modalPresentationStyle = UIModalPresentationStyle.Popover
-        nav.navigationBarHidden = false
-        nav.navigationBar.barTintColor = UIColor.whiteColor()
+            var nav = UINavigationController(rootViewController: popoverContent)
+            nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+            nav.navigationBarHidden = false
+            nav.navigationBar.barTintColor = UIColor.whiteColor()
         
-        var popover = nav.popoverPresentationController
-        popoverContent.preferredContentSize = CGSizeMake(200,200)
-        popover!.delegate = self
-        popover!.permittedArrowDirections = UIPopoverArrowDirection.Any
-        popover!.sourceView = recognizer.view
-        popover!.sourceRect = CGRectMake(self.view.frame.width*0.05 ,0,0,0)
+            var popover = nav.popoverPresentationController
+            popoverContent.preferredContentSize = CGSizeMake(200,200)
+            popover!.delegate = self
+            popover!.permittedArrowDirections = UIPopoverArrowDirection.Any
+            popover!.sourceView = recognizer.view
+            popover!.sourceRect = CGRectMake(self.view.frame.width*0.05 ,0,0,0)
         
-        let selectedPlayer = self.playerDetails
-        popoverContent.selectedPlayer = selectedPlayer
+            let selectedPlayer = self.playerDetails
+            popoverContent.selectedPlayer = selectedPlayer
         
-        self.presentViewController(nav, animated: true, completion: nil)
+            self.presentViewController(nav, animated: true, completion: nil)
+        }
         
 
     }
@@ -296,8 +294,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     
     func addBegingBench(){
         
-        var one = 62
-        for i in 0...0{
+        var one = 12
             var constantY: CGFloat = 0.12
             //create player blue in bench
             for index in one...one+9{
@@ -323,9 +320,6 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
                 touchDoublePlayer.numberOfTapsRequired  = 2
                 DynamicView.addGestureRecognizer(touchDoublePlayer)
             }
-            one-=10
-        }
-        
     }
     
     //remove players in soccer
@@ -346,7 +340,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             if let tag = view.tag {
                 if tag != tagNew {
                     button.tintColor = UIColor.grayColor()
-                    var tap = UITapGestureRecognizer(target:self, action:"doubleTap:")
+                    var tap = UITapGestureRecognizer(target:self, action:"tapChangeOne:")
                     view.addGestureRecognizer(tap)
                 }
             }
@@ -359,7 +353,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             if let tag = view.tag {
                 if tag != tagNew {
                     if(view.backgroundColor == color){
-                        var tap = UITapGestureRecognizer(target:self, action:"doubleTap:")
+                        var tap = UITapGestureRecognizer(target:self, action:"tapChangeTwo:")
                         view.addGestureRecognizer(tap)
                     }
                 }

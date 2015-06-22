@@ -395,7 +395,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="Dl5-cJ-rfe"/>
-                        <barButtonItem image="Resize Horizontal Filled-50.png" id="0BI-o1-5sO" userLabel="Trocar">
+                        <barButtonItem image="change" id="0BI-o1-5sO" userLabel="Trocar">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="ChangePlayer:" destination="vXZ-lx-hvc" id="4Le-Q0-CcC"/>
@@ -510,12 +510,12 @@
     <resources>
         <image name="Erase-50.png" width="50" height="50"/>
         <image name="Remove User-50.png" width="50" height="50"/>
-        <image name="Resize Horizontal Filled-50.png" width="50" height="50"/>
         <image name="Stadium-50.png" width="50" height="50"/>
         <image name="Undo-50" width="40" height="40"/>
         <image name="arrow" width="50" height="50"/>
         <image name="arrowOther" width="50" height="50"/>
         <image name="ball" width="640" height="480"/>
+        <image name="change" width="40" height="40"/>
         <image name="grass" width="40" height="40"/>
         <image name="pen" width="40" height="40"/>
         <image name="soccer" width="1768" height="1200"/>
