@@ -169,7 +169,13 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     //remove one player when the user to select button remove
     func tapRemove(recognizer: UITapGestureRecognizer){
         if(self.willRemove == true){
+            for i in 0...(self.soccer.count - 2){
+                if(recognizer.view == self.soccer[i]){
+                    self.soccer.removeAtIndex(i)
+                }
+            }
             recognizer.view!.removeFromSuperview()
+
             self.willRemove = false
             self.removeButton.tintColor = UIColor.blackColor()
         }
