@@ -23,6 +23,7 @@ class PlayerView: UIView {
     //init all
     init(color: UIColor, text: Int, constX: CGFloat, constY: CGFloat, view: UIView, mainView: UIView){
         self.color = color
+        
         self.text = String(text)
         self.mainView = mainView
         
@@ -77,8 +78,12 @@ class PlayerView: UIView {
     }
     
     
-    func getLabel() -> String{
+    func getLabelText() -> String{
         return self.label.text!
+    }
+    
+    func getText() -> String{
+        return self.text
     }
     
     func getColor() -> UIColor{

@@ -12,14 +12,44 @@ class PopoverViewController: UIViewController {
     
     var numbers: [String] = []
     var selectedNumber: String = ""
+    
+    
     var selectedPlayer:PlayerView!
+    var bench : [PlayerView] = []
+    var soccer : [PlayerView] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        for i in 1...100 {
-            self.numbers.append(String(i))
+        var onlyTeam: [PlayerView] = []
+        
+        for index in 0...(self.bench.count - 1){
+            if(self.selectedPlayer.getColor() == self.bench[index].getColor()){
+                onlyTeam.append(self.bench[index])
+            }
+        }
+        
+        for index in 0...(self.soccer.count - 1){
+            if(self.selectedPlayer.getColor() == self.soccer[index].getColor()){
+                onlyTeam.append(self.soccer[index])
+            }
+        }
+        
+        var i = 1
+        var accept = false
+        while(i < 101){
+            for index in 0...(onlyTeam.count - 1){
+                if(onlyTeam[index].getText() == String(i) && accept == false){
+                    accept = true
+                }
+            }
+            if(accept != true){
+                self.numbers.append(String(i))
+            }
+            accept = false
+
+            i++
         }
     }
 

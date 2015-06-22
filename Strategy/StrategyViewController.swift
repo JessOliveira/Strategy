@@ -32,8 +32,6 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     @IBOutlet weak var benchOpponent: UIView!
     @IBOutlet weak var typeImage: UIImageView!
     
-    
-    
     var isPanelExpanded = false;
 
     var isClear = false;
@@ -55,9 +53,6 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     var blueColor: UIColor = UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)
     
     var redColor: UIColor = UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 1.0)
-    
-    var playerDetails: PlayerView = PlayerView(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00))
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -227,7 +222,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             //change label
             var playerToMoveToo: PlayerView = recognizer.view as! PlayerView
             var str: String = playerToMoveToo.label.text!
-            playerToMoveToo.setLabelChange(self.playerToMove.getLabel())
+            playerToMoveToo.setLabelChange(self.playerToMove.getLabelText())
             self.playerToMove.setLabelChange(str)
             self.playerToMove.setBackGroungColor(self.colorFromPlayerToMove)
         }
@@ -235,8 +230,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     
     func doubleTap(recognizer:UITapGestureRecognizer) {
         if(self.willChange == false && self.willChangeTwo == false && self.willRemove == false){
-            self.playerDetails = recognizer.view as! PlayerView
-        
+            
             var popoverContent = self.storyboard?.instantiateViewControllerWithIdentifier("numberChage") as! PopoverViewController
         
             var nav = UINavigationController(rootViewController: popoverContent)
@@ -251,8 +245,9 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             popover!.sourceView = recognizer.view
             popover!.sourceRect = CGRectMake(self.view.frame.width*0.05 ,0,0,0)
         
-            let selectedPlayer = self.playerDetails
-            popoverContent.selectedPlayer = selectedPlayer
+            popoverContent.selectedPlayer = recognizer.view as! PlayerView
+            popoverContent.bench = self.bench
+            popoverContent.soccer = self.soccer
         
             self.presentViewController(nav, animated: true, completion: nil)
         }
