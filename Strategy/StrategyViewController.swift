@@ -133,7 +133,15 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         for view in self.bench{
             if(view.frame.origin.x > 13 && view.frame.origin.x < 960){
                 view.changeSuperView(self.mainView)
+                
                 self.soccer.append(view)
+                
+                for i in 0...(self.bench.count - 2){
+                    if(view == self.bench[i]){
+                        self.bench.removeAtIndex(i)
+                    }
+                }
+                
             }else{
                 view.removeItself()
             }
@@ -169,9 +177,10 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     //remove one player when the user to select button remove
     func tapRemove(recognizer: UITapGestureRecognizer){
         if(self.willRemove == true){
-            for i in 0...(self.soccer.count - 2){
+            for i in 0...(self.soccer.count - 1){
                 if(recognizer.view == self.soccer[i]){
                     self.soccer.removeAtIndex(i)
+                    break
                 }
             }
             recognizer.view!.removeFromSuperview()
