@@ -73,6 +73,8 @@ class PopoverViewController: UIViewController {
     
     @IBAction func changeNumber(sender: UIButton) {
         self.selectedPlayer.setLabelChange(self.selectedNumber)
+        self.dismissViewControllerAnimated(true, completion: nil)
+
         
     }
 
