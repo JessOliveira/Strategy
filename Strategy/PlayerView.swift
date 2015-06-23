@@ -27,7 +27,7 @@ class PlayerView: UIView {
         self.text = String(text)
         self.mainView = mainView
         
-        super.init(frame: CGRectMake(view.frame.width*constX, view.frame.height*constY, view.frame.width*0.04, view.frame.width*0.04))
+        super.init(frame: CGRectMake(view.frame.width*constX, view.frame.height*constY, view.frame.width*0.05, view.frame.width*0.05))
         
         self.createFormatView(self, mainView: mainView, view: view)
         
@@ -43,19 +43,20 @@ class PlayerView: UIView {
     
     //label in center
     func createLabel(index: Int, view: UIView) -> UILabel{
-        var label = UILabel(frame: CGRectMake(0, 0, view.frame.width*0.04, view.frame.width*0.02))
-        label.center = CGPointMake(view.frame.width*0.02, view.frame.width*0.02)
+        var label = UILabel(frame: CGRectMake(0, 0, view.frame.width*0.04, view.frame.width*0.025))
+        label.center = CGPointMake(view.frame.width*0.025, view.frame.width*0.025)
         label.textAlignment = NSTextAlignment.Center
         label.text = String(index)
         label.textColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0)
-        label.font = UIFont.boldSystemFontOfSize(20)
+        label.font = UIFont.boldSystemFontOfSize(22)
+        label.preservesSuperviewLayoutMargins = true
         
         return label
     }
     
     //proportional format circle
     func createFormatView(DynamicView: UIView, mainView: UIView, view: UIView){
-        DynamicView.layer.cornerRadius = view.frame.width*0.02
+        DynamicView.layer.cornerRadius = view.frame.width*0.025
         DynamicView.layer.borderWidth = 4
         DynamicView.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0).CGColor
         

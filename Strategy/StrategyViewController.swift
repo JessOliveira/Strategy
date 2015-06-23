@@ -33,9 +33,10 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     @IBOutlet weak var typeImage: UIImageView!
     @IBOutlet weak var addOpponentButton: UIButton!
     @IBOutlet weak var addTeamButton: UIButton!
+    @IBOutlet weak var noEditButtonItem: UIBarButtonItem!
     
     var isPanelExpanded = false;
-
+    
     var isClear = false;
     
     var willRemove = false;
@@ -66,11 +67,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         self.ballView.addGestureRecognizer(pan)
         
         //scrollView
-        self.scrollView.minimumZoomScale = 1.0
-        self.scrollView.maximumZoomScale = 2.0
-        self.scrollView.zoomScale = 0.2
-        self.scrollView.clipsToBounds = false
-        self.scrollView.contentSize = self.view.frame.size
+        self.setScroll()
     }
 
     override func didReceiveMemoryWarning() {
@@ -164,6 +161,15 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         }
         
         self.view.layoutIfNeeded()
+    }
+    
+    func setScroll(){
+    //scrollView
+    self.scrollView.minimumZoomScale = 1.0
+    self.scrollView.maximumZoomScale = 2.0
+    self.scrollView.zoomScale = 0.2
+    self.scrollView.clipsToBounds = false
+    self.scrollView.contentSize = self.view.frame.size
     }
     
     // MARK: Pan Gesture Functions
@@ -422,6 +428,11 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         self.setAllFalse()
         
         var theDrawView : DrawView = drawView as! DrawView
+        
+        theDrawView.setterPaint(true)
+        self.noEditButtonItem.tintColor = UIColor.blackColor()
+
+        
         var color : UIColor!
         if(button.tag == 1){
             color = UIColor.redColor()
@@ -538,6 +549,20 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         var touchDoublePlayer = UITapGestureRecognizer(target:self, action:"doubleTap:")
         touchDoublePlayer.numberOfTapsRequired  = 2
         DynamicView.addGestureRecognizer(touchDoublePlayer)
+    }
+    
+    @IBAction func setEdit(sender: UIBarButtonItem) {
+        var theDrawView : DrawView = drawView as! DrawView
+        
+        if(self.noEditButtonItem.tintColor != UIColor.grayColor()){
+            theDrawView.setterPaint(false)
+        
+            self.noEditButtonItem.tintColor = UIColor.grayColor()
+        }else{
+            theDrawView.setterPaint(true)
+            self.noEditButtonItem.tintColor = UIColor.blackColor()
+        }
+    
     }
     
     @IBAction func addOnePlayerButton(sender: UIButton) {

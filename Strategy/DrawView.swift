@@ -13,6 +13,7 @@ class DrawView: UIView {
     var lines: [Line] = []
     var lastPoint: CGPoint!
     var drawColor = UIColor.blackColor()
+    var paint = true
 
     
     required init(coder aDecoder: NSCoder){
@@ -20,33 +21,49 @@ class DrawView: UIView {
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if let var touch = touches.first as? UITouch {
-            lastPoint = touch.locationInView(self)
+        if(self.paint == true){
+            if let var touch = touches.first as? UITouch {
+                lastPoint = touch.locationInView(self)
+            }
+            super.touchesBegan(touches , withEvent:event)
         }
-        super.touchesBegan(touches , withEvent:event)
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if let var touch = touches.first as? UITouch {
-            var newPoint = touch.locationInView(self)
-            lines.append(Line(start: lastPoint, end: newPoint, color: drawColor))
-            lastPoint = newPoint
+        if(self.paint == true){
+
+            if let var touch = touches.first as? UITouch {
+                var newPoint = touch.locationInView(self)
+                lines.append(Line(start: lastPoint, end: newPoint, color: drawColor))
+                lastPoint = newPoint
+            }
+            super.touchesBegan(touches , withEvent:event)
+            self.setNeedsDisplay()
         }
-        super.touchesBegan(touches , withEvent:event)
-        self.setNeedsDisplay()
     }
     
     override func drawRect (rect: CGRect){
-        var context  = UIGraphicsGetCurrentContext()
-        CGContextSetLineCap(context, kCGLineCapRound)
-        CGContextSetLineWidth(context, 8)
-        for line in lines{
-            CGContextBeginPath(context)
-            CGContextMoveToPoint(context, line.startX, line.startY)
-            CGContextAddLineToPoint(context, line.endX, line.endY)
-            CGContextSetStrokeColorWithColor(context, line.color.CGColor)
-            CGContextStrokePath(context)
+        if(self.paint == true){
+
+            var context  = UIGraphicsGetCurrentContext()
+            CGContextSetLineCap(context, kCGLineCapRound)
+            CGContextSetLineWidth(context, 8)
+            for line in lines{
+                CGContextBeginPath(context)
+                CGContextMoveToPoint(context, line.startX, line.startY)
+                CGContextAddLineToPoint(context, line.endX, line.endY)
+                CGContextSetStrokeColorWithColor(context, line.color.CGColor)
+                CGContextStrokePath(context)
+            }
         }
+    }
+    
+    func setterPaint(type: Bool){
+        self.paint = type
+    }
+    
+    func getPaint() -> Bool{
+        return self.paint
     }
     
 }

@@ -434,6 +434,13 @@
                                 <action selector="colorTapped:" destination="vXZ-lx-hvc" id="FBh-1K-vBq"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="gfi-bG-F4x"/>
+                        <barButtonItem image="No Edit-50" id="TKb-0f-Plh">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="setEdit:" destination="vXZ-lx-hvc" id="BTe-pv-KAb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="10" style="plain" systemItem="flexibleSpace" id="Dl5-cJ-rfe"/>
                         <barButtonItem image="change" id="0BI-o1-5sO" userLabel="Trocar">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -472,6 +479,7 @@
                         <outlet property="benchTeamView" destination="hTC-eu-3xn" id="mGK-kC-GhY"/>
                         <outlet property="drawView" destination="qHO-vT-1RD" id="mH7-EA-5rt"/>
                         <outlet property="mainView" destination="wMQ-8T-dQo" id="erR-i7-6bN"/>
+                        <outlet property="noEditButtonItem" destination="TKb-0f-Plh" id="Wqc-D2-pwv"/>
                         <outlet property="opponentView" destination="GoW-4r-ADK" id="Y6O-d5-7x0"/>
                         <outlet property="removeButton" destination="o3T-qv-U7x" id="IDh-o9-tdr"/>
                         <outlet property="scrollView" destination="ATt-3x-CxC" id="DHl-Qa-fWE"/>
@@ -557,6 +565,7 @@
         <image name="Add User-50.png" width="50" height="50"/>
         <image name="Change User-50" width="50" height="50"/>
         <image name="Erase-50.png" width="50" height="50"/>
+        <image name="No Edit-50" width="35" height="35"/>
         <image name="Remove User-50.png" width="50" height="50"/>
         <image name="Stadium-50.png" width="50" height="50"/>
         <image name="Undo-50" width="40" height="40"/>
