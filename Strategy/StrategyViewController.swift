@@ -225,7 +225,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
                 //change alpha - color selected
                 self.playerToMove = recognizer.view as! PlayerView
                 self.colorFromPlayerToMove = self.blueColor
-                self.playerToMove.setBackGroungColor(UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 0.5))
+                self.playerToMove.setLabelColor()
                 
             }else{
                 //not to confuse with the ball
@@ -239,7 +239,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
                     //change alpha - color selected
                     self.playerToMove = recognizer.view as! PlayerView
                     self.colorFromPlayerToMove = self.redColor
-                    self.playerToMove.setBackGroungColor(UIColor(red: 1.0, green: 0.33, blue: 0.22, alpha: 0.5))
+                    self.playerToMove.setLabelColor()
                 }
             }
 
@@ -255,12 +255,33 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             //deselect button
             self.ChangeButton.tintColor = UIColor.blackColor()
             
-            //change label
             var playerToMoveToo: PlayerView = recognizer.view as! PlayerView
+            
+            let center1 = self.playerToMove.center
+            let center2 = playerToMoveToo.center
+            UIView.animateWithDuration(1.0, animations: {
+                playerToMoveToo.center = center1
+                self.playerToMove.center = center2
+            })
+            
+            self.playerToMove.backLabelColor()
+            
+            //change label
+            /*
             var str: String = playerToMoveToo.label.text!
             playerToMoveToo.setLabelChange(self.playerToMove.getLabelText())
             self.playerToMove.setLabelChange(str)
-            self.playerToMove.setBackGroungColor(self.colorFromPlayerToMove)
+            self.playerToMove.backLabelColor()
+            
+            playerToMoveToo.setLabelColor()
+            
+            UIView.transitionWithView(playerToMoveToo.label, duration: 3, options: .TransitionCrossDissolve, animations: {
+                playerToMoveToo.label.textColor = UIColor.whiteColor()
+                }, completion: nil)
+            */
+//            UILabel.animateWithDuration(1, animations:{ playerToMoveToo.label.textColor = UIColor.blackColor() })
+//
+//            UILabel.animateWithDuration(1, animations:{ playerToMoveToo.backLabelColor()})
         }
     }
     

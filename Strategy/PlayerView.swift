@@ -109,6 +109,18 @@ class PlayerView: UIView {
         self.color = color
     }
     
+    //set label collor
+    func backLabelColor(){
+        self.label.textColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0)
+        self.layer.borderColor = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1.0).CGColor
+    }
+    
+    //set label collor
+    func setLabelColor(){
+        self.label.textColor = UIColor.blackColor()
+        self.layer.borderColor = UIColor.blackColor().CGColor
+    }
+    
     //invisible
     func removeItself(){
         self.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
@@ -117,6 +129,11 @@ class PlayerView: UIView {
         self.text = textStore
         self.layer.borderWidth=0
         
+        if(self.color == UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)){
+            self.frame.origin.x = -50
+        }else{
+            self.frame.origin.x = view.frame.width*1.1
+        }
     }
     
     //appear
@@ -124,6 +141,11 @@ class PlayerView: UIView {
         self.layer.borderWidth=4
         self.backgroundColor = self.color
         setLabelChange(self.text)
+        if(self.color == UIColor(red: 0.1, green: 0.4, blue: 1.0, alpha: 1.0)){
+            self.frame.origin.x = view.frame.width*0.01
+        }else{
+            self.frame.origin.x = view.frame.width*0.94
+        }
     }
     
     //change SuperView - test
