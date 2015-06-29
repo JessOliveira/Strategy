@@ -14,6 +14,7 @@ class PlayerView: UIView {
     var text: String = ""
     var label: UILabel = UILabel()
     var mainView: UIView = UIView()
+    var view: UIView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +27,7 @@ class PlayerView: UIView {
         
         self.text = String(text)
         self.mainView = mainView
+        self.view = view
         
         super.init(frame: CGRectMake(view.frame.width*constX, view.frame.height*constY, view.frame.width*0.05, view.frame.width*0.05))
         
@@ -114,13 +116,12 @@ class PlayerView: UIView {
         setLabelChange("")
         self.text = textStore
         self.layer.borderWidth=0
-
+        
     }
     
     //appear
     func appearItself(){
         self.layer.borderWidth=4
-
         self.backgroundColor = self.color
         setLabelChange(self.text)
     }

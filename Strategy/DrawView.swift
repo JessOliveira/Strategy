@@ -14,6 +14,7 @@ class DrawView: UIView {
     var lastPoint: CGPoint!
     var drawColor = UIColor.blackColor()
     var paint = true
+    var begin: [Int] = []
 
     
     required init(coder aDecoder: NSCoder){
@@ -21,6 +22,7 @@ class DrawView: UIView {
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.begin.append(self.lines.count)
         if(self.paint == true){
             if let var touch = touches.first as? UITouch {
                 lastPoint = touch.locationInView(self)

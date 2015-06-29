@@ -326,9 +326,9 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
     func addBegingBench(){
         
         var one = 12
-            var constantY: CGFloat = 0.12
+            var constantY: CGFloat = 0.19
             //create player blue in bench
-            for index in one...one+10{
+            for index in one...one+9{
                 var DynamicView: PlayerView = PlayerView(color: self.blueColor, text: index, constX: 0.01, constY: constantY, view:self.view , mainView: self.view)
                 DynamicView.removeItself()
                 self.bench.append(DynamicView)
@@ -339,9 +339,9 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
                 DynamicView.addGestureRecognizer(touchDoublePlayer)
             }
             
-            constantY = 0.12
+            constantY = 0.19
             //create player red in bench
-            for index in one...one+10{
+            for index in one...one+9{
                 var DynamicView: PlayerView = PlayerView(color: self.redColor, text: index, constX: 0.95, constY: constantY, view:self.view , mainView: self.view)
                 DynamicView.removeItself()
                 self.bench.append(DynamicView)
@@ -418,7 +418,11 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         
         var theDrawView : DrawView = drawView as! DrawView
         if (theDrawView.lines.count > 0) {
-            theDrawView.lines.removeLast()
+            while(theDrawView.lines.count != theDrawView.begin.last){
+                theDrawView.lines.removeLast()
+            }
+            theDrawView.begin.removeLast()
+
         }
         theDrawView.setNeedsDisplay()
     }
