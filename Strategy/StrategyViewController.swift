@@ -139,8 +139,13 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         self.addOpponentButton.imageView?.tintColor = UIColor.blackColor()
         self.addTeamButton.imageView?.tintColor = UIColor.blackColor()
         
-        var i: Int = 0
-        //disappear players in bench
+        self.benchLogic()
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    func benchLogic(){
+         var i: Int = 0
         for view in self.bench{
             if(view.frame.origin.x > 30 && view.frame.origin.x < 940){
                 view.changeSuperView(self.mainView)
@@ -159,8 +164,6 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             }
             i++;
         }
-        
-        self.view.layoutIfNeeded()
     }
     
     func setScroll(){
@@ -219,7 +222,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
                 
                 //add gesture change - second pass in the same colors
                 self.addTapChange(self.mainView, color: self.blueColor, tagNew: 101)
-                self.addTapChange(self.benchOpponent, color: self.blueColor, tagNew: 102)
+                self.addTapChange(self.view, color: self.blueColor, tagNew: 102)
                 self.addTapChange(self.benchTeamView, color: self.blueColor, tagNew: 103)
                 
                 //change alpha - color selected
@@ -254,8 +257,26 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             self.willChangeTwo = false
             //deselect button
             self.ChangeButton.tintColor = UIColor.blackColor()
+
             
             var playerToMoveToo: PlayerView = recognizer.view as! PlayerView
+            
+            if(self.playerToMove.getMainView() != self.mainView || playerToMoveToo.getMainView() != self.mainView){
+                if(self.playerToMove.getMainView() != self.mainView && playerToMoveToo.getMainView() != self.mainView){
+                    
+                }else{
+                    if(self.playerToMove.getMainView() != self.mainView){
+                        self.playerToMove.changeSuperView(self.mainView)
+                        playerToMoveToo.changeSuperView(self.view)
+                        self.bench.append(playerToMoveToo)
+
+                    }else{
+                        playerToMoveToo.changeSuperView(self.mainView)
+                        self.playerToMove.changeSuperView(self.view)
+                        self.bench.append(self.playerToMove)
+                    }
+                }
+            }
             
             let center1 = self.playerToMove.center
             let center2 = playerToMoveToo.center
@@ -266,22 +287,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
             
             self.playerToMove.backLabelColor()
             
-            //change label
-            /*
-            var str: String = playerToMoveToo.label.text!
-            playerToMoveToo.setLabelChange(self.playerToMove.getLabelText())
-            self.playerToMove.setLabelChange(str)
-            self.playerToMove.backLabelColor()
             
-            playerToMoveToo.setLabelColor()
-            
-            UIView.transitionWithView(playerToMoveToo.label, duration: 3, options: .TransitionCrossDissolve, animations: {
-                playerToMoveToo.label.textColor = UIColor.whiteColor()
-                }, completion: nil)
-            */
-//            UILabel.animateWithDuration(1, animations:{ playerToMoveToo.label.textColor = UIColor.blackColor() })
-//
-//            UILabel.animateWithDuration(1, animations:{ playerToMoveToo.backLabelColor()})
         }
     }
     
@@ -529,7 +535,7 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
         if(self.willRemove == true || self.willChangeTwo == true){
             
             if(self.willChangeTwo == true){
-                self.playerToMove.setBackGroungColor(self.colorFromPlayerToMove)
+                self.playerToMove.backLabelColor()
                 self.ChangeButton.tintColor = UIColor.blackColor()
                 self.willChange = true
             }

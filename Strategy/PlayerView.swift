@@ -98,6 +98,10 @@ class PlayerView: UIView {
         self.text = labelNew
     }
     
+    func getMainView()->UIView{
+        return self.mainView
+    }
+    
     //set color simple
     func setColor(view: UIView, color : UIColor){
         view.backgroundColor = color
