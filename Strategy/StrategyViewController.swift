@@ -278,11 +278,11 @@ class StrategyViewController: UIViewController, UIPopoverPresentationControllerD
                 }
             }
             
-            let center1 = self.playerToMove.center
-            let center2 = playerToMoveToo.center
+            let origin1 = self.playerToMove.frame.origin
+            let origin2 = playerToMoveToo.frame.origin
             UIView.animateWithDuration(1.0, animations: {
-                playerToMoveToo.center = center1
-                self.playerToMove.center = center2
+                playerToMoveToo.frame.origin = origin1
+                self.playerToMove.frame.origin = origin2
             })
             
             self.playerToMove.backLabelColor()

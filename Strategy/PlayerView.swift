@@ -75,9 +75,9 @@ class PlayerView: UIView {
     
     //gesture player
     func pan(recognizer:UIPanGestureRecognizer) {
-        var translation  = recognizer.translationInView(self.mainView)
+        var translation  = recognizer.translationInView(self.view)
         recognizer.view!.transform = CGAffineTransformTranslate(recognizer.view!.transform, translation.x, translation.y)
-        recognizer.setTranslation(CGPointZero, inView: self.mainView)
+        recognizer.setTranslation(CGPointZero, inView: self.view)
     }
     
     
